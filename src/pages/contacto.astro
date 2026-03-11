@@ -61,7 +61,7 @@ import Layout from '../layouts/Layout.astro';
             
             <div>
               <label for="phone" class="block text-sm font-medium text-brand-light mb-2">Teléfono (Opcional)</label>
-              <input type="tel" id="phone" name="phone" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="+123 456 7890">
+              <input type="tel" id="phone" name="phone" pattern="[0-9+\-\s]+" title="Solo se permiten números, espacios, y los símbolos + y -" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="+123 456 7890">
             </div>
 
             <div>
@@ -69,8 +69,12 @@ import Layout from '../layouts/Layout.astro';
               <textarea id="message" name="message" rows="4" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors resize-none" placeholder="Cuéntanos qué necesitas sublimar, cantidades estimadas, etc."></textarea>
             </div>
 
-            <button type="submit" class="w-full bg-white text-brand-black py-4 rounded-md font-bold text-lg hover:bg-brand-beige transition-colors shadow-lg">
-              Enviar Cotización
+            <button id="submitBtn" type="submit" class="w-full bg-white text-brand-black py-4 rounded-md font-bold text-lg hover:bg-brand-beige transition-colors shadow-lg flex justify-center items-center gap-2">
+              <span id="submitText">Enviar Cotización</span>
+              <svg id="submitSpinner" class="animate-spin h-5 w-5 text-brand-black hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+              </svg>
             </button>
             <p class="text-xs text-brand-gray text-center mt-4">
               Protegido contra Spam (hCaptcha). No compartiremos tus datos.
@@ -79,4 +83,124 @@ import Layout from '../layouts/Layout.astro';
         </div>
     </div>
   </section>
+
+  <!-- Toast Notification (Popup) -->
+  <div id="toast" class="fixed bottom-4 right-4 max-w-sm w-full bg-white rounded-lg shadow-2xl overflow-hidden transform translate-y-[150%] transition-transform duration-300 z-50 pointer-events-none">
+    <div class="p-4 flex items-start gap-4">
+      <div id="toastIconSuccess" class="flex-shrink-0 w-8 h-8 rounded-full bg-green-100 text-green-600 flex items-center justify-center hidden">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+      </div>
+      <div id="toastIconError" class="flex-shrink-0 w-8 h-8 rounded-full bg-red-100 text-red-600 flex items-center justify-center hidden">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </div>
+      <div class="flex-1">
+        <h4 id="toastTitle" class="text-brand-black font-bold mb-1">Título</h4>
+        <p id="toastMessage" class="text-sm text-brand-dark">Mensaje descriptivo</p>
+      </div>
+      <button id="closeToastBtn" class="text-brand-gray hover:text-brand-black transition-colors pointer-events-auto">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+  </div>
+
 </Layout>
+
+<script>
+  // Lógica de validación y envío del formulario
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contactForm') as HTMLFormElement;
+    const submitBtn = document.getElementById('submitBtn') as HTMLButtonElement;
+    const submitText = document.getElementById('submitText');
+    const submitSpinner = document.getElementById('submitSpinner');
+    
+    // Elementos del Toast
+    const toast = document.getElementById('toast');
+    const toastTitle = document.getElementById('toastTitle');
+    const toastMessage = document.getElementById('toastMessage');
+    const toastIconSuccess = document.getElementById('toastIconSuccess');
+    const toastIconError = document.getElementById('toastIconError');
+    const closeToastBtn = document.getElementById('closeToastBtn');
+    
+    let toastTimeout;
+
+    const showToast = (type: 'success' | 'error', title: string, message: string) => {
+      // Limpiar timeout previo
+      if (toastTimeout) clearTimeout(toastTimeout);
+      
+      // Configurar contenido
+      if (toastTitle) toastTitle.textContent = title;
+      if (toastMessage) toastMessage.textContent = message;
+      
+      // Configurar iconos
+      if (type === 'success') {
+        toastIconSuccess?.classList.remove('hidden');
+        toastIconError?.classList.add('hidden');
+        if(toastTitle) toastTitle.classList.replace('text-red-600', 'text-green-600') || toastTitle.classList.add('text-green-600');
+      } else {
+        toastIconSuccess?.classList.add('hidden');
+        toastIconError?.classList.remove('hidden');
+        if(toastTitle) toastTitle.classList.replace('text-green-600', 'text-red-600') || toastTitle.classList.add('text-red-600');
+      }
+
+      // Mostrar Toast (eliminar la clase que lo esconde abajo)
+      toast?.classList.remove('translate-y-[150%]');
+      toast?.classList.add('pointer-events-auto');
+
+      // Ocultar automáticamente después de 5 segundos
+      toastTimeout = setTimeout(() => {
+        hideToast();
+      }, 5000);
+    };
+
+    const hideToast = () => {
+      toast?.classList.add('translate-y-[150%]');
+      toast?.classList.remove('pointer-events-auto');
+    };
+
+    closeToastBtn?.addEventListener('click', hideToast);
+
+    if (form) {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Evita que la página recargue
+        
+        // Extraer datos
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Estado de "Cargando"
+        submitBtn.disabled = true;
+        submitText!.textContent = 'Enviando...';
+        submitSpinner?.classList.remove('hidden');
+
+        try {
+          // --- AQUÍ IRÁ LA LLAMADA A LA API ---
+          // Por ahora simulamos una petición de 1.5 segundos
+          await new Promise(resolve => setTimeout(resolve, 1500));
+          
+          /* EJEMPLO DE CÓMO SERÁ LA LLAMADA REAL CUANDO TENGAMOS LA API:
+          const response = await fetch('TU_URL_DE_API_AQUI', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data)
+          });
+          if(!response.ok) throw new Error('Error en el servidor');
+          */
+
+          // Éxito:
+          showToast('success', '¡Mensaje Enviado!', 'Hemos recibido tu solicitud. Te contactaremos muy pronto.');
+          form.reset(); // Limpiar el formulario
+          
+        } catch (error) {
+          // Error:
+          console.error(error);
+          showToast('error', 'Error al enviar', 'Ocurrió un problema de conexión. Por favor intenta de nuevo.');
+        } finally {
+          // Restaurar estado del botón
+          submitBtn.disabled = false;
+          submitText!.textContent = 'Enviar Cotización';
+          submitSpinner?.classList.add('hidden');
+        }
+      });
+    }
+  });
+</script>
