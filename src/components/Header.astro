@@ -13,15 +13,15 @@
 
       <!-- Desktop Menu -->
       <nav class="hidden md:flex space-x-8" aria-label="Navegación principal">
-        <a href="#servicios" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="servicios">Servicios</a>
-        <a href="#portafolio" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="portafolio">Portafolio</a>
-        <a href="#nosotros" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="nosotros">Nosotros</a>
-        <a href="#contacto" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="contacto">Contacto</a>
+        <a href="/servicios" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="servicios">Servicios</a>
+        <a href="/portafolio" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="portafolio">Portafolio</a>
+        <a href="/nosotros" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="nosotros">Nosotros</a>
+        <a href="/contacto" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="contacto">Contacto</a>
       </nav>
 
       <!-- CTA Button -->
       <div class="hidden md:flex items-center">
-        <a href="#contacto" class="bg-white text-brand-black px-6 py-2 rounded-md font-semibold hover:bg-brand-beige transition-colors duration-300">
+        <a href="/contacto" class="bg-white text-brand-black px-6 py-2 rounded-md font-semibold hover:bg-brand-beige transition-colors duration-300">
           Cotizar Proyecto
         </a>
       </div>
@@ -55,11 +55,11 @@
   </div>
   
   <nav class="flex flex-col items-center justify-center flex-grow space-y-8 pb-20 px-4">
-    <a href="#servicios" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="servicios">Servicios</a>
-    <a href="#portafolio" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="portafolio">Portafolio</a>
-    <a href="#nosotros" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="nosotros">Nosotros</a>
-    <a href="#contacto" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="contacto">Contacto</a>
-    <a href="#contacto" class="nav-link-mobile mt-8 bg-white text-brand-black px-8 py-4 rounded-md font-bold text-xl hover:bg-brand-beige transition-colors w-full max-w-xs text-center shadow-lg">
+    <a href="/servicios" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="servicios">Servicios</a>
+    <a href="/portafolio" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="portafolio">Portafolio</a>
+    <a href="/nosotros" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="nosotros">Nosotros</a>
+    <a href="/contacto" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="contacto">Contacto</a>
+    <a href="/contacto" class="nav-link-mobile mt-8 bg-white text-brand-black px-8 py-4 rounded-md font-bold text-xl hover:bg-brand-beige transition-colors w-full max-w-xs text-center shadow-lg">
       Cotizar Proyecto
     </a>
   </nav>
@@ -102,49 +102,33 @@
       link.addEventListener('click', closeMenu);
     });
 
-    // 2. Lógica de "Active Section" (Resaltado en Navbar al hacer scroll)
-    const sections = document.querySelectorAll('section[id]');
+    // 2. Lógica de "Active Section" (Resaltado de ruta actual)
+    const currentPath = window.location.pathname;
     const navLinks = document.querySelectorAll('.nav-link');
     
-    const observerOptions = {
-      root: null,
-      rootMargin: '-20% 0px -80% 0px',
-      threshold: 0
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const currentId = entry.target.getAttribute('id');
-          
-          navLinks.forEach(link => {
-            link.classList.remove('text-white', 'font-bold');
-            link.classList.add('text-brand-gray');
-            if (link.getAttribute('data-section') === currentId) {
-              link.classList.remove('text-brand-gray');
-              link.classList.add('text-white', 'font-bold');
-            }
-          });
-          
-          mobileLinks.forEach(link => {
-            if(!link.hasAttribute('data-section')) return;
-            // No tocamos los logos o botones que casualmente tengan la nav-link-mobile
-            if (link.tagName === 'A' && !link.classList.contains('bg-white')) {
-              link.classList.remove('text-white', 'font-bold');
-              link.classList.add('text-brand-gray');
-              if (link.getAttribute('data-section') === currentId) {
-                link.classList.remove('text-brand-gray');
-                link.classList.add('text-white', 'font-bold');
-              }
-            }
-          });
+    // Función para marcar enlace activo
+    const setActiveLink = (links) => {
+      links.forEach(link => {
+        // Obtenemos la ruta a la que apunta el enlace
+        const linkPath = link.getAttribute('href');
+        
+        // Limpiamos estilos de todos
+        link.classList.remove('text-white', 'font-bold');
+        link.classList.add('text-brand-gray');
+        
+        // Reglas de coincidencia (si la URL incluye la ruta del link, o si es '/' exacto)
+        if (linkPath === currentPath || (linkPath !== '/' && currentPath.includes(linkPath))) {
+          link.classList.remove('text-brand-gray');
+          link.classList.add('text-white', 'font-bold');
         }
       });
-    }, observerOptions);
+    };
 
-    sections.forEach(section => {
-      sectionObserver.observe(section);
-    });
+    setActiveLink(navLinks);
+    
+    // Para mobile, ignoramos links que no sean de navegación real (ej. el botón de cotizar)
+    const mobileNavLinks = Array.from(mobileLinks).filter(link => !link.classList.contains('bg-white'));
+    setActiveLink(mobileNavLinks);
   });
 </script>
 <style>
