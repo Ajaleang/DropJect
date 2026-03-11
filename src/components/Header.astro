@@ -1,7 +1,7 @@
 ---
 ---
 
-<header class="fixed top-0 w-full z-50 bg-brand-black/90 backdrop-blur-md border-b border-brand-dark transition-colors duration-300">
+<header id="main-header" class="fixed top-0 w-full z-40 bg-brand-black/90 backdrop-blur-md border-b border-brand-dark transition-colors duration-300">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
@@ -12,11 +12,11 @@
       </div>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-8">
-        <a href="#servicios" class="text-brand-gray hover:text-white transition-colors duration-200 font-medium">Servicios</a>
-        <a href="#portafolio" class="text-brand-gray hover:text-white transition-colors duration-200 font-medium">Portafolio</a>
-        <a href="#nosotros" class="text-brand-gray hover:text-white transition-colors duration-200 font-medium">Nosotros</a>
-        <a href="#contacto" class="text-brand-gray hover:text-white transition-colors duration-200 font-medium">Contacto</a>
+      <nav class="hidden md:flex space-x-8" aria-label="Navegación principal">
+        <a href="#servicios" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="servicios">Servicios</a>
+        <a href="#portafolio" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="portafolio">Portafolio</a>
+        <a href="#nosotros" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="nosotros">Nosotros</a>
+        <a href="#contacto" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="contacto">Contacto</a>
       </nav>
 
       <!-- CTA Button -->
@@ -26,9 +26,10 @@
         </a>
       </div>
 
-      <!-- Mobile menu button -->
+      <!-- Mobile menu button (Open) -->
       <div class="md:hidden flex items-center">
-        <button type="button" class="text-brand-light hover:text-white focus:outline-none">
+        <button id="open-menu-btn" type="button" class="text-brand-light hover:text-white focus:outline-none p-2" aria-expanded="false">
+          <span class="sr-only">Abrir menú principal</span>
           <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -37,3 +38,118 @@
     </div>
   </div>
 </header>
+
+<!-- Fullscreen Mobile Menu Overlay -->
+<div id="mobile-menu" class="fixed inset-0 bg-brand-black z-50 md:hidden flex-col transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px] hidden">
+  <!-- Mobile Menu Header (Identico visualmente al main header pero dentro del overlay) -->
+  <div class="flex justify-between items-center h-20 px-4 sm:px-6">
+    <a href="/" class="text-2xl font-bold text-white tracking-wider nav-link-mobile" data-section="home">
+      Drop<span class="text-brand-light">Ject</span>
+    </a>
+    <button id="close-menu-btn" type="button" class="text-brand-light hover:text-white focus:outline-none p-2 rounded-full hover:bg-brand-dark transition-colors">
+      <span class="sr-only">Cerrar menú</span>
+      <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+      </svg>
+    </button>
+  </div>
+  
+  <nav class="flex flex-col items-center justify-center flex-grow space-y-8 pb-20 px-4">
+    <a href="#servicios" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="servicios">Servicios</a>
+    <a href="#portafolio" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="portafolio">Portafolio</a>
+    <a href="#nosotros" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="nosotros">Nosotros</a>
+    <a href="#contacto" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="contacto">Contacto</a>
+    <a href="#contacto" class="nav-link-mobile mt-8 bg-white text-brand-black px-8 py-4 rounded-md font-bold text-xl hover:bg-brand-beige transition-colors w-full max-w-xs text-center shadow-lg">
+      Cotizar Proyecto
+    </a>
+  </nav>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // 1. Lógica del Menú Móvil Fullscreen
+    const openBtn = document.getElementById('open-menu-btn');
+    const closeBtn = document.getElementById('close-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.nav-link-mobile');
+
+    const openMenu = () => {
+      menu.classList.remove('hidden');
+      // Pequeño timeout para permitir que la clase desaparezca antes de aplicar la opacidad (transición CSS)
+      setTimeout(() => {
+        menu.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+        menu.classList.add('flex', 'opacity-100', 'translate-y-0');
+        document.body.style.overflow = 'hidden'; // Bloquear scroll en body
+      }, 10);
+    };
+
+    const closeMenu = () => {
+      menu.classList.remove('opacity-100', 'translate-y-0');
+      menu.classList.add('opacity-0', 'pointer-events-none', 'translate-y-[-10px]');
+      
+      setTimeout(() => {
+        menu.classList.add('hidden');
+        menu.classList.remove('flex');
+        document.body.style.overflow = ''; // Restaurar scroll
+      }, 300); // 300ms de la duración de transition-all
+    };
+
+    openBtn?.addEventListener('click', openMenu);
+    closeBtn?.addEventListener('click', closeMenu);
+    
+    // Cerrar menú al hacer clic en un enlace interno
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // 2. Lógica de "Active Section" (Resaltado en Navbar al hacer scroll)
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -80% 0px',
+      threshold: 0
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const currentId = entry.target.getAttribute('id');
+          
+          navLinks.forEach(link => {
+            link.classList.remove('text-white', 'font-bold');
+            link.classList.add('text-brand-gray');
+            if (link.getAttribute('data-section') === currentId) {
+              link.classList.remove('text-brand-gray');
+              link.classList.add('text-white', 'font-bold');
+            }
+          });
+          
+          mobileLinks.forEach(link => {
+            if(!link.hasAttribute('data-section')) return;
+            // No tocamos los logos o botones que casualmente tengan la nav-link-mobile
+            if (link.tagName === 'A' && !link.classList.contains('bg-white')) {
+              link.classList.remove('text-white', 'font-bold');
+              link.classList.add('text-brand-gray');
+              if (link.getAttribute('data-section') === currentId) {
+                link.classList.remove('text-brand-gray');
+                link.classList.add('text-white', 'font-bold');
+              }
+            }
+          });
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => {
+      sectionObserver.observe(section);
+    });
+  });
+</script>
+<style>
+  /* Clases de utilidad para el JS (Tailwind maneja casi todo, esto es por si acaso) */
+  .nav-link.text-white {
+    text-shadow: 0 0 10px rgba(255,255,255,0.3);
+  }
+</style>
