@@ -1,0 +1,168 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Datos de las técnicas de estampado para renderizar dinámicamente
+const tecnicas = [
+  {
+    nombre: "Plastisol",
+    descripcion: "Tinta de caucho con gran resistencia al lavado. Perfecta cobertura y colores sólidos.",
+    uso: "Ideal para prendas pesadas, uniformes y diseños clásicos.",
+    icono: "M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 002-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"
+  },
+  {
+    nombre: "Alto Relieve 3D",
+    descripcion: "Estampado con volumen perceptible al tacto y bordes definidos que resaltan del textil.",
+    uso: "Moda urbana, logos de marcas en hoodies y camisetas oversize.",
+    icono: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"
+  },
+  {
+    nombre: "Escudo Alta Definición",
+    descripcion: "Precisión milimétrica en líneas finas para escudos y logos de tamaño reducido.",
+    uso: "Ropa deportiva premium, uniformes corporativos y merch institucional.",
+    icono: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+  },
+  {
+    nombre: "Metalizado Alto Brillo",
+    descripcion: "Acabado tipo espejo o foil brillante en múltiples colores y formas geométricas.",
+    uso: "Colecciones cápsula de edición limitada y diseños futuristas.",
+    icono: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+  },
+  {
+    nombre: "Glow in the Dark",
+    descripcion: "Tinta foto-luminiscente que absorbe luz de día y brilla en la oscuridad.",
+    uso: "Merch para artistas, eventos nocturnos, conciertos y festivales.",
+    icono: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+  },
+  {
+    nombre: "Despigmentado (Cero Tacto)",
+    descripcion: "Reemplaza el color del estampado por el tono de la tela. No se siente la tinta (Tacto cero).",
+    uso: "Solo telas 100% algodón. Ideal para camisetas clásicas y moda vintage.",
+    icono: "M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"
+  },
+  {
+    nombre: "Policromía (Full Color)",
+    descripcion: "Estampados sin límite de colores (ej. diseños a 8 tintas) para lograr degradados e imágenes completas.",
+    uso: "Diseños complejos, ilustraciones hiperrealistas, piezas de arte sobre textil.",
+    icono: "M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"
+  },
+  {
+    nombre: "Relieve y Realismo",
+    descripcion: "Combinación de técnicas para dotar a imágenes realistas con texturas volumétricas.",
+    uso: "Prendas de galería, marcas de alto valor percibido.",
+    icono: "M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+  },
+  {
+    nombre: "Metalizado Difuminado",
+    descripcion: "Foil metalizado que se difumina progresivamente, creando un efecto de desvanecimiento premium.",
+    uso: "Logos tipográficos, prendas de noche y colecciones exclusivas.",
+    icono: "M11 4a2 2 0 114 0v1a1 1 0 001 1h3a1 1 0 011 1v3a1 1 0 01-1 1h-1a2 2 0 100 4h1a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-1a2 2 0 10-4 0v1a1 1 0 01-1 1H7a1 1 0 01-1-1v-3a1 1 0 00-1-1H4a2 2 0 110-4h1a1 1 0 001-1V7a1 1 0 011-1h3a1 1 0 001-1V4z"
+  },
+  {
+    nombre: "Texturas en Relieve Suavizado",
+    descripcion: "Ejemplo: Cebra en líneas en relieve con textura suave al tacto. Combina volumen y confort.",
+    uso: "Patrones (patterns) que cubren áreas grandes de la prenda.",
+    icono: "M14 10l-2 1m0 0l-2-1m2 1v2.5M20 7l-2 1m2-1l-2-1m2 1v2.5M14 4l-2-1-2 1M4 7l2-1M4 7l2 1M4 7v2.5M12 21l-2-1m2 1l2-1m-2 1v-2.5M6 18l-2-1v-2.5M18 18l2-1v-2.5"
+  },
+  {
+    nombre: "3D con Degradé",
+    descripcion: "Impresión en alto relieve con transición suave entre dos o más colores (Ombré).",
+    uso: "Acentos visuales fuertes en ropa deportiva o streetwear moderno.",
+    icono: "M13 10V3L4 14h7v7l9-11h-7z"
+  },
+  {
+    nombre: "Flock (Efecto Terciopelo)",
+    descripcion: "Acabado aterciopelado, denso y suave al tacto que aporta elegancia y textura única.",
+    uso: "Letras varsity universitarias, chaquetas premium o prendas invernales.",
+    icono: "M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.017c-.163 0-.326-.02-.485-.06L7 20m7-10V5a2 2 0 00-2-2h-.095c-.5 0-.905.405-.905.905 0 .714-.211 1.412-.608 2.006L7 11v9m7-10h-2M7 20H5a2 2 0 01-2-2v-6a2 2 0 012-2h2.5"
+  },
+  {
+    nombre: "Estampado Reflectivo",
+    descripcion: "Material que refleja intensamente la luz directamente hacia la fuente (ej. flash de celular).",
+    uso: "Moda utilitaria, ropa para ciclistas/motociclistas y streetwear nocturno.",
+    icono: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
+  },
+  {
+    nombre: "Reactivo al Sol",
+    descripcion: "Efectos fotocromáticos: tintas invisibles o de un color que cambian drásticamente bajo luz UV/Sol.",
+    uso: "Merch innovador y prendas con diseño de sorpresa ('Easter eggs').",
+    icono: "M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+  },
+  {
+    nombre: "Despigmentado en Buzos",
+    descripcion: "Estampado sin grosor en hoodies y crewnecks de gramaje alto mediante técnica de despigmentado.",
+    uso: "Buzos corporativos y prendas pesadas que exigen tacto nulo en el diseño.",
+    icono: "M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"
+  },
+  {
+    nombre: "Efecto Puff (Inflado)",
+    descripcion: "Tinta que se expande con el calor, creando una textura inflada y blanda tipo 'marshmallow'.",
+    uso: "Tipografías burbuja en streetwear 90s/Y2K y detalles lúdicos.",
+    icono: "M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"
+  }
+];
+---
+
+<Layout>
+  <!-- Hero Section Tecnicas -->
+  <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Biblioteca de Técnicas</h1>
+    <p class="text-brand-gray max-w-2xl mx-auto text-lg">
+      Más de 15 acabados premium en serigrafía para separar tu marca del resto.
+    </p>
+  </section>
+
+  <!-- Filtro o Contexto Visual -->
+  <section class="py-12 bg-brand-light text-brand-black border-b border-brand-gray/20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+       <p class="text-xl font-medium text-brand-dark max-w-3xl mx-auto leading-relaxed">
+         Un diseño promedio se convierte en una <strong>pieza de colección</strong> cuando usamos la técnica correcta. Explora nuestro catálogo de efectos especiales; desde el tacto nulo del despigmentado hasta el volumen extremo del Puff y 3D.
+       </p>
+    </div>
+  </section>
+
+  <!-- Catálogo Grid -->
+  <section class="py-24 bg-brand-light text-brand-black min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        {tecnicas.map((tecnica) => (
+          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-brand-light/50 group hover:-translate-y-2">
+            
+            <div class="w-14 h-14 bg-brand-dark rounded-xl mb-6 flex items-center justify-center text-white group-hover:bg-brand-black transition-colors shadow-inner">
+              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={tecnica.icono} />
+              </svg>
+            </div>
+            
+            <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-brand-gray transition-colors">{tecnica.nombre}</h3>
+            
+            <p class="text-brand-dark text-base leading-relaxed mb-6 font-medium">
+              {tecnica.descripcion}
+            </p>
+            
+            <div class="mt-auto pt-6 border-t border-brand-light/70">
+              <h4 class="text-xs tracking-wider text-brand-gray uppercase font-bold mb-2">Ideal para:</h4>
+              <p class="text-sm text-brand-black italic">
+                {tecnica.uso}
+              </p>
+            </div>
+          </div>
+        ))}
+
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-20 text-center bg-brand-beige p-12 rounded-2xl shadow-inner border border-brand-gray/20">
+        <h3 class="text-3xl font-bold mb-4">¿Tienes una técnica específica en mente?</h3>
+        <p class="text-brand-dark mb-8 max-w-2xl mx-auto text-lg">
+          Nuestro taller en Bogotá está equipado para combinar técnicas (ej. Flock + Alto Relieve) y crear acabados completamente únicos para tu próxima Drop.
+        </p>
+        <a href="/contacto" class="px-10 py-4 bg-brand-black text-white rounded-md font-bold text-lg hover:bg-brand-gray transition-all shadow-2xl inline-block hover:scale-105 transform duration-300">
+          Cotizar mi Proyecto Serigráfico
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

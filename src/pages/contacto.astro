@@ -14,9 +14,9 @@ import Layout from '../layouts/Layout.astro';
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-12 text-left">
         <!-- Info y Botones Directos -->
         <div class="flex flex-col justify-center">
-          <h3 class="text-2xl font-bold mb-6 text-white">Hablemos sobre tu idea</h3>
+          <h3 class="text-2xl font-bold mb-6 text-white">Agenda una asesoría</h3>
           <p class="text-brand-gray mb-8">
-            Ya sea un pedido por volumen corporativo o un proyecto personalizado, nuestro equipo está listo para asesorarte con los mejores materiales de sublimación.
+            Visítanos en nuestra sede en <strong>Bogotá, Colombia</strong> o escríbenos a través de nuestro Instagram oficial <a href="#" class="text-white font-bold hover:underline">@DropJect</a> para revisar los detalles de tu producción y técnicas deseadas.
           </p>
           
           <div class="space-y-4">
@@ -51,22 +51,54 @@ import Layout from '../layouts/Layout.astro';
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-brand-light mb-2">Nombre *</label>
-                <input type="text" id="name" name="name" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="Tu nombre o empresa">
+                <input type="text" id="name" name="name" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="Tu nombre">
               </div>
               <div>
-                <label for="email" class="block text-sm font-medium text-brand-light mb-2">Correo Electrónico *</label>
-                <input type="email" id="email" name="email" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="correo@ejemplo.com">
+                <label for="brand" class="block text-sm font-medium text-brand-light mb-2">Marca / Empresa *</label>
+                <input type="text" id="brand" name="brand" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="Nombre de tu marca">
               </div>
             </div>
             
-            <div>
-              <label for="phone" class="block text-sm font-medium text-brand-light mb-2">Teléfono (Opcional)</label>
-              <input type="tel" id="phone" name="phone" pattern="[0-9+\-\s]+" title="Solo se permiten números, espacios, y los símbolos + y -" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="+123 456 7890">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="garment" class="block text-sm font-medium text-brand-light mb-2">Tipo de Prenda *</label>
+                <select id="garment" name="garment" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors appearance-none">
+                  <option value="" disabled selected>Selecciona una opción</option>
+                  <option value="Camiseta Clasica">Camiseta Fit Clásica</option>
+                  <option value="Camiseta Oversize">Camiseta Oversize</option>
+                  <option value="Hoodie">Hoodie Oversize</option>
+                  <option value="Crewneck">Crewneck</option>
+                  <option value="Otros">Otro tipo de prenda / Traigo la mía</option>
+                </select>
+              </div>
+              <div>
+                <label for="technique" class="block text-sm font-medium text-brand-light mb-2">Técnica Deseada *</label>
+                <select id="technique" name="technique" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors appearance-none">
+                  <option value="" disabled selected>Selecciona una técnica</option>
+                  <option value="Plastisol">Plastisol</option>
+                  <option value="Alto Relieve">Alto Relieve / Puff / 3D</option>
+                  <option value="Despigmentado">Despigmentado / Tacto Cero</option>
+                  <option value="Efectos Especiales">Efectos Especiales (Reflectivo/Glow)</option>
+                  <option value="Policromia">Full Color / Policromía</option>
+                  <option value="Asesoria">No sé, necesito asesoría</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div>
+                <label for="quantity" class="block text-sm font-medium text-brand-light mb-2">Cantidad Aproximada *</label>
+                <input type="number" id="quantity" name="quantity" min="1" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="Ej: 50">
+              </div>
+              <div>
+                <label for="phone" class="block text-sm font-medium text-brand-light mb-2">WhatsApp / Teléfono *</label>
+                <input type="tel" id="phone" name="phone" required pattern="[0-9+\-\s]+" title="Solo se permiten números, espacios, y los símbolos + y -" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="+57 300 123 4567">
+              </div>
             </div>
 
             <div>
-              <label for="message" class="block text-sm font-medium text-brand-light mb-2">Mensaje / Proyecto *</label>
-              <textarea id="message" name="message" rows="4" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors resize-none" placeholder="Cuéntanos qué necesitas sublimar, cantidades estimadas, etc."></textarea>
+              <label for="message" class="block text-sm font-medium text-brand-light mb-2">Mensaje / Detalles Adicionales</label>
+              <textarea id="message" name="message" rows="3" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors resize-none" placeholder="Cuéntanos más detalles de tu idea, plazos de entrega, etc."></textarea>
             </div>
 
             <button id="submitBtn" type="submit" class="w-full bg-white text-brand-black py-4 rounded-md font-bold text-lg hover:bg-brand-beige transition-colors shadow-lg flex justify-center items-center gap-2">

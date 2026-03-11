@@ -15,31 +15,43 @@ import Layout from '../layouts/Layout.astro';
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         <!-- Item 1 -->
-        <div class="group relative aspect-square overflow-hidden rounded-xl bg-brand-dark cursor-pointer">
+        <div class="group relative aspect-[4/5] overflow-hidden rounded-xl bg-brand-dark cursor-pointer shadow-lg">
           <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white">Dotación Industrial</h3>
-            <p class="text-brand-light text-sm">Constructora XYZ</p>
+            <h3 class="text-2xl font-bold text-white">Colecciones Estacionales</h3>
+            <p class="text-brand-light text-sm mt-1">Moda Urbana & Streetwear</p>
+            <p class="text-brand-gray text-xs mt-3 hidden group-hover:block animate-fade-in-up">Aplicación de técnicas mixtas: Puff + Despigmentado sobre siluetas oversize.</p>
           </div>
           <!-- Placeholder (Simulando imagen real) -->
-          <div class="w-full h-full flex items-center justify-center text-brand-gray group-hover:scale-110 transition-transform duration-500">Img 1</div>
+          <div class="w-full h-full flex flex-col items-center justify-center text-brand-gray group-hover:scale-105 transition-transform duration-700 bg-brand-black">
+            <svg class="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" /></svg>
+            <span class="text-sm font-medium">Cápsula Streetwear</span>
+          </div>
         </div>
 
         <!-- Item 2 -->
-        <div class="group relative aspect-square overflow-hidden rounded-xl bg-brand-dark cursor-pointer">
+        <div class="group relative aspect-[4/5] overflow-hidden rounded-xl bg-brand-dark cursor-pointer shadow-lg">
           <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white">Lanyards y Credenciales</h3>
-            <p class="text-brand-light text-sm">Congreso Tecnología 2024</p>
+            <h3 class="text-2xl font-bold text-white">Tour Merch</h3>
+            <p class="text-brand-light text-sm mt-1">Merch para Artistas y Bandas</p>
+            <p class="text-brand-gray text-xs mt-3 hidden group-hover:block animate-fade-in-up">Producción masiva de Hoodies y Crewnecks con reflectivos y alto relieve.</p>
           </div>
-          <div class="w-full h-full flex items-center justify-center text-brand-gray group-hover:scale-110 transition-transform duration-500">Img 2</div>
+          <div class="w-full h-full flex flex-col items-center justify-center text-brand-gray group-hover:scale-105 transition-transform duration-700 bg-brand-dark">
+            <svg class="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3" /></svg>
+            <span class="text-sm font-medium">Merch Tour 2024</span>
+          </div>
         </div>
 
         <!-- Item 3 -->
-        <div class="group relative aspect-square overflow-hidden rounded-xl bg-brand-dark cursor-pointer">
+        <div class="group relative aspect-[4/5] overflow-hidden rounded-xl bg-brand-dark cursor-pointer shadow-lg">
           <div class="absolute inset-0 bg-gradient-to-t from-brand-black/90 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10 flex flex-col justify-end p-6">
-            <h3 class="text-xl font-bold text-white">Carpas Promocionales</h3>
-            <p class="text-brand-light text-sm">Activación de Marca en Verano</p>
+            <h3 class="text-2xl font-bold text-white">Identidad Textil</h3>
+            <p class="text-brand-light text-sm mt-1">Uniformes Corporativos Premium</p>
+            <p class="text-brand-gray text-xs mt-3 hidden group-hover:block animate-fade-in-up">Dotación institucional con Escudos de Alta Definición y durabilidad extrema.</p>
           </div>
-          <div class="w-full h-full flex items-center justify-center text-brand-gray group-hover:scale-110 transition-transform duration-500">Img 3</div>
+          <div class="w-full h-full flex flex-col items-center justify-center text-brand-gray group-hover:scale-105 transition-transform duration-700 bg-brand-black">
+            <svg class="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+            <span class="text-sm font-medium">Agencia Creativa</span>
+          </div>
         </div>
       </div>
       

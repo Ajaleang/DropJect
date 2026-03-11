@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <!-- Hero Section Productos -->
+  <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
+    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Línea de Productos</h1>
+    <p class="text-brand-gray max-w-2xl mx-auto text-lg">
+      Blanks de alta calidad para materializar tu marca. Calidad, comodidad y perfecta superficie de impresión.
+    </p>
+  </section>
+
+  <!-- Catálogo de Prendas -->
+  <section class="py-24 bg-brand-light text-brand-black min-h-screen">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Contexto B2B/Moda -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <p class="text-lg text-brand-dark">
+          Nuestras prendas están diseñadas específicamente para resistir los procesos más exigentes de serigrafía. Son el lienzo ideal para <strong>marcas de streetwear, colecciones cápsula, merch de artistas y uniformes corporativos de alto nivel.</strong>
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        
+        <!-- Producto 1: Fit Clásica -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand-light/50 group flex flex-col">
+          <div class="aspect-square bg-brand-beige flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-black/5 group-hover:bg-transparent transition-colors z-10"></div>
+            <span class="text-brand-gray/50 font-medium z-0">Foto Fit Clásica</span>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Camiseta Fit Clásica</h3>
+            <p class="text-brand-dark text-sm mb-4">100% Algodón</p>
+            <p class="text-sm text-brand-gray leading-relaxed flex-grow">
+              Corte tradicional y versátil. Disponible en opciones de tela nacional o importada, asegurando siempre suavidad y excelente fijación de tintas.
+            </p>
+          </div>
+        </div>
+
+        <!-- Producto 2: Oversize -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand-light/50 group flex flex-col">
+          <div class="aspect-square bg-brand-beige flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-black/5 group-hover:bg-transparent transition-colors z-10"></div>
+            <span class="text-brand-gray/50 font-medium z-0">Foto Oversize</span>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Camiseta Oversize</h3>
+            <p class="text-brand-dark text-sm mb-4">100% Algodón</p>
+            <p class="text-sm text-brand-gray leading-relaxed flex-grow">
+              Silueta amplia y caída pesada para un look streetwear auténtico. Tela nacional o importada resistente a técnicas premium como alto relieve.
+            </p>
+          </div>
+        </div>
+
+        <!-- Producto 3: Hoodies -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand-light/50 group flex flex-col">
+          <div class="aspect-square bg-brand-beige flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-black/5 group-hover:bg-transparent transition-colors z-10"></div>
+            <span class="text-brand-gray/50 font-medium z-0">Foto Hoodie Oversize</span>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Hoodies Oversize</h3>
+            <p class="text-brand-dark text-sm mb-4">Algodón Perchado</p>
+            <p class="text-sm text-brand-gray leading-relaxed flex-grow">
+              Buzos con capucha de gramaje pesado, garantizando abrigo y estructura. Combina tela nacional/importada ideal para efectos reflectivos o puff.
+            </p>
+          </div>
+        </div>
+
+        <!-- Producto 4: Crewnecks -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-shadow duration-300 border border-brand-light/50 group flex flex-col">
+          <div class="aspect-square bg-brand-beige flex items-center justify-center relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand-black/5 group-hover:bg-transparent transition-colors z-10"></div>
+            <span class="text-brand-gray/50 font-medium z-0">Foto Crewneck</span>
+          </div>
+          <div class="p-6 flex-grow flex flex-col">
+            <h3 class="text-xl font-bold mb-2">Crewnecks Oversize</h3>
+            <p class="text-brand-dark text-sm mb-4">Algodón Perchado</p>
+            <p class="text-sm text-brand-gray leading-relaxed flex-grow">
+              Buzos cuello redondo de corte relajado. Perfectos para merch minimalista. Su tejido admite técnicas complejas de despigmentado y texturas.
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="mt-20 text-center">
+        <h3 class="text-2xl font-bold mb-6">¿Buscas materializar tu colección?</h3>
+        <p class="text-brand-gray mb-8 max-w-2xl mx-auto">
+          Podemos asesorarte sobre qué blank y técnica se adapta mejor al ADN de tu marca.
+        </p>
+        <a href="/tecnicas" class="px-8 py-4 bg-brand-black text-white rounded-md font-bold text-lg hover:bg-brand-dark transition-all shadow-xl inline-block">
+          Elige la Técnica de Estampado Ideal
+        </a>
+      </div>
+
+    </div>
+  </section>
+</Layout>

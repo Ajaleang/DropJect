@@ -6,14 +6,16 @@
     <div class="flex justify-between items-center h-20">
       <!-- Logo -->
       <div class="flex-shrink-0 flex items-center">
-        <a href="/" class="text-2xl font-bold text-white tracking-wider">
+        <a href="/" class="text-2xl font-bold tracking-wider text-white hover:opacity-80 transition-opacity">
           Drop<span class="text-brand-light">Ject</span>
         </a>
       </div>
 
       <!-- Desktop Menu -->
-      <nav class="hidden md:flex space-x-8" aria-label="Navegación principal">
-        <a href="/servicios" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="servicios">Servicios</a>
+      <nav class="hidden md:flex space-x-6" aria-label="Navegación principal">
+        <a href="/productos" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="productos">Productos</a>
+        <a href="/tecnicas" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="tecnicas">Técnicas</a>
+        <a href="/fotografia" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="fotografia">Fotografía</a>
         <a href="/portafolio" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="portafolio">Portafolio</a>
         <a href="/nosotros" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="nosotros">Nosotros</a>
         <a href="/contacto" class="nav-link text-brand-gray hover:text-white transition-colors duration-200 font-medium" data-section="contacto">Contacto</a>
@@ -43,7 +45,7 @@
 <div id="mobile-menu" class="fixed inset-0 bg-brand-black z-50 md:hidden flex-col transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px] hidden">
   <!-- Mobile Menu Header (Identico visualmente al main header pero dentro del overlay) -->
   <div class="flex justify-between items-center h-20 px-4 sm:px-6">
-    <a href="/" class="text-2xl font-bold text-white tracking-wider nav-link-mobile" data-section="home">
+    <a href="/" class="text-2xl font-bold tracking-wider text-white nav-link-mobile hover:opacity-80 transition-opacity" data-section="home">
       Drop<span class="text-brand-light">Ject</span>
     </a>
     <button id="close-menu-btn" type="button" class="text-brand-light hover:text-white focus:outline-none p-2 rounded-full hover:bg-brand-dark transition-colors">
@@ -55,7 +57,9 @@
   </div>
   
   <nav class="flex flex-col items-center justify-center flex-grow space-y-8 pb-20 px-4">
-    <a href="/servicios" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="servicios">Servicios</a>
+    <a href="/productos" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="productos">Productos</a>
+    <a href="/tecnicas" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="tecnicas">Técnicas</a>
+    <a href="/fotografia" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="fotografia">Fotografía</a>
     <a href="/portafolio" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="portafolio">Portafolio</a>
     <a href="/nosotros" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="nosotros">Nosotros</a>
     <a href="/contacto" class="nav-link-mobile text-3xl text-brand-gray hover:text-white transition-colors font-medium" data-section="contacto">Contacto</a>
