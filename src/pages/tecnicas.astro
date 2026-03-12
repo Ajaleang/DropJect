@@ -1,6 +1,14 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
+const seo = {
+	title: 'Técnicas de Estampado | Plastisol, 3D, Despigmentado y Más - DropJect',
+	description: 'Biblioteca completa de técnicas de serigrafía: plastisol, alto relieve 3D, despigmentado, flock, reflectivo, glow in the dark y más de 15 acabados premium para tu marca.',
+	keywords: 'técnicas de estampado, plastisol, alto relieve 3D, despigmentado, flock, serigrafía premium, estampado reflectivo, glow in the dark, efectos especiales textil',
+	canonicalURL: '/tecnicas',
+	type: 'website'
+};
+
 // Datos de las técnicas de estampado para renderizar dinámicamente
 const tecnicas = [
   {
@@ -102,7 +110,7 @@ const tecnicas = [
 ];
 ---
 
-<Layout>
+<Layout seo={seo}>
   <!-- Hero Section Tecnicas -->
   <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Biblioteca de Técnicas</h1>

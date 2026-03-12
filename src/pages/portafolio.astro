@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seo = {
+	title: 'Portafolio | Proyectos de Sublimación y Estampado - DropJect',
+	description: 'Explora nuestro portafolio de proyectos: colecciones de streetwear, merch para artistas, uniformes corporativos y más. Calidad premium en cada detalle.',
+	keywords: 'portafolio sublimación, proyectos estampado, streetwear Bogotá, merch artistas, uniformes corporativos, galería trabajos serigrafía',
+	canonicalURL: '/portafolio',
+	type: 'website'
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Nuestro Trabajo</h1>
     <p class="text-brand-gray max-w-2xl mx-auto text-lg">

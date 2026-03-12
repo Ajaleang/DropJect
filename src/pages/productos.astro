@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seo = {
+	title: 'Productos y Blanks para Estampado | Camisetas, Hoodies y Crewnecks - DropJect',
+	description: 'Línea de productos textiles premium para estampado: camisetas fit clásicas, oversize, hoodies y crewnecks. Algodón 100% de alta calidad para serigrafía y sublimación.',
+	keywords: 'blanks para estampado, camisetas oversize, hoodies algodón, crewneck, camisetas fit clásico, ropa para serigrafía, prendas para estampar, streetwear blanks',
+	canonicalURL: '/productos',
+	type: 'website'
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <!-- Hero Section Productos -->
   <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Línea de Productos</h1>

@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seo = {
+	title: 'Servicios de Sublimación | Dotaciones, Uniformes y Material POP - DropJect',
+	description: 'Servicios profesionales de sublimación: dotaciones corporativas, eventos y promocionales, material POP de gran formato. Producción en masa con calidad premium en Bogotá.',
+	keywords: 'servicios de sublimación, dotaciones corporativas, uniformes empresariales, material POP, pendones, bolsas ecológicas, gorras personalizadas, lanyards',
+	canonicalURL: '/servicios',
+	type: 'website'
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Servicios Profesionales</h1>
     <p class="text-brand-gray max-w-2xl mx-auto text-lg">

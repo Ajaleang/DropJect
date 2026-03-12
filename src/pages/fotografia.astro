@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seo = {
+	title: 'Fotografía de Productos y Lookbook | E-commerce Ready - DropJect',
+	description: 'Servicios de fotografía profesional para marcas de moda y streetwear. Fotografía de producto y lookbooks con modelos. Precios desde $90.000 COP.',
+	keywords: 'fotografía de productos, lookbook moda, fotografía e-commerce, sesión de fotos streetwear, fotografía de prendas, catálogo de ropa Bogotá',
+	canonicalURL: '/fotografia',
+	type: 'website'
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <!-- Hero Fotografía -->
   <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
     <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Servicios de Fotografía</h1>

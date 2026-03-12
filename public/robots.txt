@@ -1,0 +1,30 @@
+# robots.txt for DropJect
+# https://dropject.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://dropject.com/sitemap-index.xml
+
+# Crawl-delay (optional, polite crawling)
+Crawl-delay: 1
+
+# Block access to admin/utility paths (if any in the future)
+Disallow: /dist/
+Disallow: /node_modules/
+Disallow: /.astro/
+Disallow: /src/
+
+# Allow all search engines to index main content
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Slurp
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /

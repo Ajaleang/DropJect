@@ -1,8 +1,16 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+const seo = {
+	title: 'DropJect | Sublimación Industrial y Dotaciones Corporativas en Bogotá',
+	description: 'Especialistas en sublimación de alta calidad en Bogotá. Dotaciones corporativas, uniformes, material POP y producción textil con colores vibrantes y durabilidad garantizada. ¡Cotiza hoy!',
+	keywords: 'sublimación Bogotá, dotaciones corporativas, uniformes empresariales, serigrafía, estampado textil, material POP, merchandising, producción textil',
+	canonicalURL: '/',
+	type: 'website'
+};
 ---
 
-<Layout>
+<Layout seo={seo}>
   <!-- Hero Section -->
   <section class="relative bg-brand-black w-full min-h-screen flex items-center justify-center overflow-hidden">
     <!-- Abstract gradient background representing sublimation heat / color -->
