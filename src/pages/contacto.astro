@@ -52,10 +52,8 @@ const seo = {
 
         <!-- Formulario Web3Forms -->
         <div class="bg-brand-dark p-8 rounded-2xl border border-brand-gray/20 shadow-2xl relative">
-          <!-- TODO: Add Web3Forms Action Here -->
           <form action="#" method="POST" class="space-y-6" id="contactForm">
-            <!-- Access Key oculta de Web3Forms irá aquí -->
-            
+
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
               <div>
                 <label for="name" class="block text-sm font-medium text-brand-light mb-2">Nombre *</label>
@@ -66,30 +64,21 @@ const seo = {
                 <input type="text" id="brand" name="brand" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors" placeholder="Nombre de tu marca">
               </div>
             </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div>
-                <label for="garment" class="block text-sm font-medium text-brand-light mb-2">Tipo de Prenda *</label>
-                <select id="garment" name="garment" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors appearance-none">
-                  <option value="" disabled selected>Selecciona una opción</option>
-                  <option value="Camiseta Clasica">Camiseta Fit Clásica</option>
-                  <option value="Camiseta Oversize">Camiseta Oversize</option>
-                  <option value="Hoodie">Hoodie Oversize</option>
-                  <option value="Crewneck">Crewneck</option>
-                  <option value="Otros">Otro tipo de prenda / Traigo la mía</option>
-                </select>
-              </div>
-              <div>
-                <label for="technique" class="block text-sm font-medium text-brand-light mb-2">Técnica Deseada *</label>
-                <select id="technique" name="technique" required class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors appearance-none">
-                  <option value="" disabled selected>Selecciona una técnica</option>
-                  <option value="Plastisol">Plastisol</option>
-                  <option value="Alto Relieve">Alto Relieve / Puff / 3D</option>
-                  <option value="Despigmentado">Despigmentado / Tacto Cero</option>
-                  <option value="Efectos Especiales">Efectos Especiales (Reflectivo/Glow)</option>
-                  <option value="Policromia">Full Color / Policromía</option>
-                  <option value="Asesoria">No sé, necesito asesoría</option>
-                </select>
+
+            <!-- Selector visual de servicio -->
+            <div>
+              <p class="block text-sm font-medium text-brand-light mb-3">Servicio *</p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4" id="service-cards">
+                <label class="service-card cursor-pointer rounded-xl border border-brand-gray/30 p-5 flex flex-col gap-2 transition-all hover:border-white/60" data-value="estampado">
+                  <input type="radio" name="servicio" value="estampado" class="sr-only" required>
+                  <span class="font-bold text-white text-sm">Estampado en Serigrafía</span>
+                  <span class="text-brand-gray text-xs leading-relaxed">Producción y estampado de prendas con técnicas premium.</span>
+                </label>
+                <label class="service-card cursor-pointer rounded-xl border border-brand-gray/30 p-5 flex flex-col gap-2 transition-all hover:border-white/60" data-value="paquete-completo">
+                  <input type="radio" name="servicio" value="paquete-completo" class="sr-only">
+                  <span class="font-bold text-white text-sm">Paquete Completo <span class="ml-1 text-xs font-bold uppercase tracking-widest bg-white text-brand-black px-2 py-0.5 rounded-full">Full-Pack</span></span>
+                  <span class="text-brand-gray text-xs leading-relaxed">Desde el patronaje hasta la entrega final en packaging.</span>
+                </label>
               </div>
             </div>
 
@@ -105,8 +94,8 @@ const seo = {
             </div>
 
             <div>
-              <label for="message" class="block text-sm font-medium text-brand-light mb-2">Mensaje / Detalles Adicionales</label>
-              <textarea id="message" name="message" rows="3" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors resize-none" placeholder="Cuéntanos más detalles de tu idea, plazos de entrega, etc."></textarea>
+              <label for="message" class="block text-sm font-medium text-brand-light mb-2">Detalles del pedido</label>
+              <textarea id="message" name="message" rows="4" class="w-full bg-brand-black border border-brand-gray/30 rounded-md px-4 py-3 text-white focus:outline-none focus:border-brand-light focus:ring-1 focus:ring-brand-light transition-colors resize-none" placeholder="Cuéntanos tu idea: tipo de prenda, diseño, colores, fechas de entrega, referencias de estilo, etc."></textarea>
             </div>
 
             <button id="submitBtn" type="submit" class="w-full bg-white text-brand-black py-4 rounded-md font-bold text-lg hover:bg-brand-beige transition-colors shadow-lg flex justify-center items-center gap-2">
@@ -117,10 +106,53 @@ const seo = {
               </svg>
             </button>
             <p class="text-xs text-brand-gray text-center mt-4">
-              Protegido contra Spam (hCaptcha). No compartiremos tus datos.
+              Protegido contra Spam. No compartiremos tus datos.
             </p>
           </form>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Seguimiento a tu Pedido -->
+  <section class="py-24 bg-brand-dark text-white border-t border-brand-gray/10">
+    <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 mb-6">
+        <span class="text-xs font-bold uppercase tracking-widest bg-brand-gray/20 text-brand-gray px-3 py-1 rounded-full border border-brand-gray/30">Próximamente</span>
+      </div>
+      <h2 class="text-3xl font-bold mb-4">Seguimiento a tu Pedido</h2>
+      <p class="text-brand-gray mb-10 leading-relaxed">
+        Estamos construyendo un sistema de seguimiento en tiempo real para que puedas consultar el estado de tu producción en cada etapa. Accede con tu usuario y contraseña para ver avances, fechas estimadas y aprobaciones.
+      </p>
+
+      <!-- Mockup bloqueado -->
+      <div class="relative rounded-2xl">
+        <div class="bg-brand-black rounded-2xl border border-brand-gray/20 p-8 opacity-40 pointer-events-none select-none">
+          <div class="space-y-4">
+            <div>
+              <label class="block text-sm font-medium text-brand-gray mb-2 text-left">Usuario</label>
+              <div class="w-full bg-brand-dark border border-brand-gray/20 rounded-md px-4 py-3 text-brand-gray/50 text-left">
+                usuario@tumarca.com
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-brand-gray mb-2 text-left">Contraseña</label>
+              <div class="w-full bg-brand-dark border border-brand-gray/20 rounded-md px-4 py-3 text-brand-gray/50 text-left tracking-widest">
+                ••••••••••
+              </div>
+            </div>
+            <div class="w-full bg-brand-gray/20 text-brand-gray/50 py-3 rounded-md font-semibold">
+              Ingresar al Portal
+            </div>
+          </div>
+        </div>
+        <div class="absolute inset-0 flex items-center justify-center rounded-2xl">
+          <div class="bg-brand-black/90 rounded-full px-5 py-2 border border-brand-gray/40 text-brand-gray text-sm font-medium flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/></svg>
+            Disponible pronto
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -146,6 +178,35 @@ const seo = {
 </Layout>
 
 <script>
+  // Lógica de radio cards de servicio
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll<HTMLElement>('.service-card');
+
+    const selectCard = (value: string) => {
+      cards.forEach(card => {
+        const radio = card.querySelector<HTMLInputElement>('input[type="radio"]');
+        if (card.dataset.value === value) {
+          radio!.checked = true;
+          card.classList.add('border-white', 'bg-white/10');
+          card.classList.remove('border-brand-gray/30');
+        } else {
+          radio!.checked = false;
+          card.classList.remove('border-white', 'bg-white/10');
+          card.classList.add('border-brand-gray/30');
+        }
+      });
+    };
+
+    cards.forEach(card => {
+      card.addEventListener('click', () => selectCard(card.dataset.value!));
+    });
+
+    // Preselección por URL (?servicio=estampado o ?servicio=paquete-completo)
+    const params = new URLSearchParams(window.location.search);
+    const preselect = params.get('servicio');
+    if (preselect) selectCard(preselect);
+  });
+
   // Lógica de validación y envío del formulario
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contactForm') as HTMLFormElement;
