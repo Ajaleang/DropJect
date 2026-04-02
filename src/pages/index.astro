@@ -2,21 +2,24 @@
 import Layout from '../layouts/Layout.astro';
 
 const seo = {
-	title: 'DropJect | Sublimación Industrial y Dotaciones Corporativas en Bogotá',
-	description: 'Especialistas en sublimación de alta calidad en Bogotá. Dotaciones corporativas, uniformes, material POP y producción textil con colores vibrantes y durabilidad garantizada. ¡Cotiza hoy!',
-	keywords: 'sublimación Bogotá, dotaciones corporativas, uniformes empresariales, serigrafía, estampado textil, material POP, merchandising, producción textil',
+	title: 'DropJect | Serigrafía Premium y Producción Textil en Bogotá',
+	description: 'Especialistas en serigrafía de alto nivel en Bogotá. Estampado premium, paquete completo de producción textil y más de 15 técnicas exclusivas. ¡Cotiza hoy!',
+	keywords: 'serigrafía Bogotá, estampado premium, producción textil, paquete completo textil, streetwear Colombia, merch artistas, uniformes corporativos, DropJect',
 	canonicalURL: '/',
 	type: 'website'
 };
 ---
 
 <Layout seo={seo}>
-  <!-- Hero Section -->
+
+  <!-- ═══════════════════════════════════════
+       HERO
+  ═══════════════════════════════════════ -->
   <section class="relative bg-brand-black w-full min-h-screen flex items-center justify-center overflow-hidden">
     <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--color-brand-gray)_0%,_transparent_70%)]"></div>
 
     <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 flex flex-col items-center">
-      <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">Serigrafía de alto nivel</p>
+      <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">Serigrafía de alto nivel · Bogotá, Colombia</p>
       <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
         DROPJECT / Estampado a otro nivel.
       </h1>
@@ -27,13 +30,190 @@ const seo = {
         "DROPJECT, estampado a otro nivel, prendas para las mejores marcas."
       </p>
       <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="px-8 py-3 bg-white text-brand-black rounded-md font-semibold text-lg hover:bg-brand-beige transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+        <a href="/contacto" class="px-10 py-4 bg-white text-brand-black rounded-md font-bold text-lg hover:bg-brand-beige transition-all shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_45px_rgba(255,255,255,0.4)] flex items-center gap-2 justify-center">
           Cotizar Ahora
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <a href="/servicios" class="px-8 py-3 bg-brand-dark/50 text-white border border-brand-gray rounded-md font-semibold text-lg hover:bg-brand-dark transition-all">
+        <a href="/servicios" class="px-10 py-4 bg-brand-dark/50 text-white border border-brand-gray/50 rounded-md font-semibold text-lg hover:bg-brand-dark hover:border-brand-gray transition-all">
           Ver Servicios
         </a>
       </div>
     </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-gray/50 animate-bounce">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    </div>
   </section>
+
+  <!-- ═══════════════════════════════════════
+       TRUST BAR — Números que generan confianza
+  ═══════════════════════════════════════ -->
+  <section class="bg-brand-dark border-y border-brand-gray/10 py-10">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+        <div>
+          <p class="text-3xl font-bold text-white">18+</p>
+          <p class="text-sm text-brand-gray mt-1">Años de experiencia</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white">15+</p>
+          <p class="text-sm text-brand-gray mt-1">Técnicas de estampado</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white">100%</p>
+          <p class="text-sm text-brand-gray mt-1">Producción en Colombia</p>
+        </div>
+        <div>
+          <p class="text-3xl font-bold text-white">B2B</p>
+          <p class="text-sm text-brand-gray mt-1">Marcas &amp; empresas</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       SERVICIOS — Preview de los 2 servicios
+  ═══════════════════════════════════════ -->
+  <section class="py-24 bg-brand-black text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-3">Lo que hacemos</p>
+        <h2 class="text-3xl md:text-5xl font-bold text-white">Dos servicios,<br/>una sola exigencia: calidad.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+
+        <!-- Estampado -->
+        <div class="bg-white text-brand-black rounded-2xl p-10 flex flex-col shadow-lg hover:shadow-2xl transition-shadow">
+          <div class="w-12 h-12 bg-brand-dark rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Estampado en Serigrafía</h3>
+          <p class="text-brand-dark mb-6 leading-relaxed">Producción en múltiples técnicas premium: Plastisol, 3D, Flock, Reflectivo, Glow in the Dark y más. Traes tu prenda, nosotros ponemos el arte.</p>
+          <ul class="space-y-2 text-sm text-brand-dark mb-8 flex-grow">
+            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Separación de diseños y artes listas para impresión</li>
+            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Dirección creativa y diseños exclusivos</li>
+            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Fotografías de resultados incluidas</li>
+          </ul>
+          <a href="/contacto?servicio=estampado" class="mt-auto block text-center px-6 py-3 bg-brand-black text-white rounded-md font-semibold hover:bg-brand-dark transition-colors">
+            Cotizar Estampado →
+          </a>
+        </div>
+
+        <!-- Paquete Completo -->
+        <div class="bg-brand-dark text-white rounded-2xl p-10 flex flex-col border border-white/10 shadow-lg hover:shadow-2xl transition-shadow relative overflow-hidden">
+          <span class="absolute top-5 right-5 text-xs font-bold uppercase tracking-widest bg-white text-brand-black px-3 py-1 rounded-full">Full-Pack</span>
+          <div class="w-12 h-12 bg-white/10 rounded-xl mb-6 flex items-center justify-center">
+            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+          </div>
+          <h3 class="text-2xl font-bold mb-3">Paquete Completo</h3>
+          <p class="text-brand-gray mb-6 leading-relaxed">Desde el patronaje hasta la entrega final empaquetada. La solución integral para marcas que quieren delegar todo el proceso productivo.</p>
+          <ul class="space-y-2 text-sm text-brand-gray mb-8 flex-grow">
+            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Patronaje, fichas técnicas y selección de telas</li>
+            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Muestras previas y producción completa</li>
+            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Entrega final en packaging organizado</li>
+          </ul>
+          <a href="/contacto?servicio=paquete-completo" class="mt-auto block text-center px-6 py-3 bg-white text-brand-black rounded-md font-semibold hover:bg-brand-beige transition-colors">
+            Cotizar Paquete Completo →
+          </a>
+        </div>
+
+      </div>
+
+      <div class="text-center mt-10">
+        <a href="/servicios" class="text-brand-gray hover:text-white transition-colors text-sm font-medium underline underline-offset-4">
+          Ver descripción completa de servicios →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CÓMO FUNCIONA — 3 pasos
+  ═══════════════════════════════════════ -->
+  <section class="py-24 bg-brand-light text-brand-black">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-16">
+        <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-3">Proceso</p>
+        <h2 class="text-3xl md:text-4xl font-bold">Así de simple es empezar.</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
+          <h3 class="text-xl font-bold mb-3">Cotiza tu proyecto</h3>
+          <p class="text-brand-dark leading-relaxed">Llena el formulario o escríbenos por WhatsApp con los detalles de tu pedido: servicio, prendas, cantidad y diseño.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
+          <h3 class="text-xl font-bold mb-3">Producción a medida</h3>
+          <p class="text-brand-dark leading-relaxed">Coordinamos contigo cada detalle: técnica, telas, muestras previas y tiempos de entrega. Sin sorpresas.</p>
+        </div>
+        <div class="text-center">
+          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
+          <h3 class="text-xl font-bold mb-3">Entrega impecable</h3>
+          <p class="text-brand-dark leading-relaxed">Recibe tu colección lista: organizada por referencia, tallas y diseño, en el packaging que tu marca necesita.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       NOSOTROS — Credencial rápida
+  ═══════════════════════════════════════ -->
+  <section class="py-24 bg-brand-black text-white border-t border-brand-dark">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">Sobre nosotros</p>
+          <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">18 años<br/>en la industria textil.</h2>
+          <p class="text-brand-gray leading-relaxed mb-8">
+            Con más de 18 años de experiencia en serigrafía y producción textil en Colombia, ofrecemos alianzas sólidas y duraderas. Nuestra pasión por la moda se refleja en la más alta calidad de estampación, técnicas innovadoras y un servicio de full-packing de alto nivel.
+          </p>
+          <a href="/nosotros" class="text-white font-semibold hover:text-brand-light transition-colors underline underline-offset-4">
+            Conocer más sobre DropJect →
+          </a>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10">
+            <p class="text-3xl font-bold text-white mb-1">18+</p>
+            <p class="text-brand-gray text-sm">Años de experiencia</p>
+          </div>
+          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10">
+            <p class="text-3xl font-bold text-white mb-1">15+</p>
+            <p class="text-brand-gray text-sm">Técnicas premium</p>
+          </div>
+          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10 col-span-2">
+            <p class="text-2xl font-bold text-white mb-1">Bogotá, Colombia</p>
+            <p class="text-brand-gray text-sm">Taller propio · Producción local</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════
+       CTA FINAL — Cierre antes del footer
+  ═══════════════════════════════════════ -->
+  <section class="py-24 bg-white text-brand-black">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">¿Listo para empezar?</p>
+      <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Tu próxima colección<br/>empieza aquí.</h2>
+      <p class="text-brand-dark mb-10 text-lg max-w-xl mx-auto">
+        Cotiza tu proyecto hoy mismo. Te respondemos en tiempo récord con la mejor propuesta para tu marca.
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="/contacto" class="px-10 py-4 bg-brand-black text-white rounded-md font-bold text-lg hover:bg-brand-dark transition-all shadow-xl flex items-center gap-2 justify-center">
+          Cotizar Ahora
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+        <a href="https://wa.me/573117694342" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-[#25D366] text-white rounded-md font-bold text-lg hover:bg-[#20BE5C] transition-all flex items-center gap-2 justify-center">
+          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
 </Layout>
