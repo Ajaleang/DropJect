@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(Get-ChildItem -Path . -File)",
+      "Bash(Select-Object Name)"
+    ]
+  }
+}

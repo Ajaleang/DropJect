@@ -5,7 +5,14 @@
   <div class="flex items-center justify-between px-6 md:px-12 h-20">
     <!-- Logo -->
     <a href="/" class="hover:opacity-80 transition-opacity flex-shrink-0" aria-label="DropJect — Ir al inicio">
-      <img src="/logos/01.png" alt="DropJect" class="h-7 w-auto" width="200" height="28" />
+      <span class="logo-mark">
+        <svg width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+          <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
+        </svg>
+        <span class="logo-wordmark">DROPJECT</span>
+      </span>
     </a>
 
     <!-- Desktop Nav -->
@@ -39,8 +46,15 @@
 <!-- Fullscreen Mobile Menu -->
 <div id="mobile-menu" class="fixed inset-0 bg-[var(--black)] z-50 md:hidden flex-col transition-all duration-300 opacity-0 pointer-events-none translate-y-[-10px] hidden">
   <div class="flex justify-between items-center h-20 px-6">
-    <a href="/" class="nav-link-mobile" data-section="home" aria-label="DropJect — Ir al inicio">
-      <img src="/logos/01.png" alt="DropJect" class="h-7 w-auto" width="175" height="28" />
+    <a href="/" class="nav-link-mobile hover:opacity-80 transition-opacity" data-section="home" aria-label="DropJect — Ir al inicio">
+      <span class="logo-mark">
+        <svg width="28" height="28" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+          <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
+        </svg>
+        <span class="logo-wordmark">DROPJECT</span>
+      </span>
     </a>
     <button id="close-menu-btn" type="button" class="text-[var(--pale)] hover:text-[var(--white)] focus:outline-none p-2">
       <span class="sr-only">Cerrar menú</span>
@@ -97,6 +111,20 @@
 </script>
 
 <style>
+  .logo-mark {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--white);
+  }
+  .logo-wordmark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+
   .nav-link {
     font-family: 'Inter', sans-serif;
     font-size: 0.75rem;
