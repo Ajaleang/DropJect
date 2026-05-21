@@ -11,20 +11,19 @@ const seo = {
 ---
 
 <Layout seo={seo}>
-  <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
-    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Servicios</h1>
-    <p class="text-brand-gray max-w-2xl mx-auto text-lg">
-      Serigrafía de alto nivel y producción textil completa para marcas exigentes.
-    </p>
+  <section class="page-hero">
+    <p class="page-hero-label">Servicios</p>
+    <h1 class="page-hero-h1">Serigrafía &<br/>Producción Textil</h1>
+    <p class="page-hero-desc">Serigrafía de alto nivel y producción textil completa para marcas exigentes.</p>
   </section>
 
-  <section class="py-24 bg-brand-black text-white min-h-screen">
+  <section class="py-24 bg-[var(--black)] text-white min-h-screen">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bordered-grid reveal" style="grid-template-columns: 1fr 1fr;">
 
         <!-- Servicio 1: Estampado en Serigrafía -->
-        <div class="bg-white text-brand-black rounded-2xl p-10 flex flex-col shadow-lg">
-          <h2 class="text-2xl font-bold mb-6">Estampado en Serigrafía</h2>
+        <div class="bordered-cell bg-[var(--white)] text-[var(--black)] flex flex-col" style="border-bottom: none;">
+          <h2 class="service-page-title">Estampado en Serigrafía</h2>
           <ul class="space-y-4 flex-grow mb-8">
             <li class="flex items-start gap-3">
               <span class="text-brand-black font-bold mt-0.5">✔</span>
@@ -43,15 +42,15 @@ const seo = {
               <span>Fotografías de los estampados elegidos para visualizar resultados.</span>
             </li>
           </ul>
-          <a href="/contacto?servicio=estampado" class="mt-auto block text-center px-6 py-3 bg-brand-black text-white rounded-md font-semibold hover:bg-brand-dark transition-colors">
+          <a href="/contacto?servicio=estampado" class="mt-auto block text-center px-6 py-3 bg-[var(--black)] text-[var(--white)] hover:bg-[var(--dark)] transition-colors" style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">
             Cotizar Estampado
           </a>
         </div>
 
         <!-- Servicio 2: Paquete Completo -->
-        <div class="bg-brand-black text-white rounded-2xl p-10 flex flex-col border border-white/20 shadow-lg relative overflow-hidden">
-          <span class="absolute top-5 right-5 text-xs font-bold uppercase tracking-widest bg-white text-brand-black px-3 py-1 rounded-full">Full-Pack</span>
-          <h2 class="text-2xl font-bold mb-6">Paquete Completo</h2>
+        <div class="bordered-cell bg-[var(--dark)] text-white flex flex-col relative overflow-hidden" style="border-right: none; border-bottom: none;">
+          <span class="service-page-badge">Full-Pack</span>
+          <h2 class="service-page-title service-page-title--light">Paquete Completo</h2>
           <ul class="space-y-4 flex-grow mb-8">
             <li class="flex items-start gap-3">
               <span class="text-white font-bold mt-0.5">✔</span>
@@ -82,7 +81,7 @@ const seo = {
               <span>Información infográfica de cada servicio para mayor claridad.</span>
             </li>
           </ul>
-          <a href="/contacto?servicio=paquete-completo" class="mt-auto block text-center px-6 py-3 bg-white text-brand-black rounded-md font-semibold hover:bg-brand-beige transition-colors">
+          <a href="/contacto?servicio=paquete-completo" class="mt-auto block text-center px-6 py-3 bg-[var(--white)] text-[var(--black)] font-semibold hover:bg-[var(--light)] transition-colors" style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;letter-spacing:0.1em;text-transform:uppercase;">
             Cotizar Paquete Completo
           </a>
         </div>
@@ -91,3 +90,32 @@ const seo = {
     </div>
   </section>
 </Layout>
+
+<style>
+  .service-page-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+  }
+  .service-page-title--light { color: var(--white); }
+  .service-page-badge {
+    position: absolute;
+    top: 1.5rem; right: 1.5rem;
+    font-size: 0.6rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    background: var(--white);
+    color: var(--black);
+    padding: 0.3rem 0.75rem;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+  @media (max-width: 768px) {
+    .bordered-grid { grid-template-columns: 1fr !important; }
+    .bordered-cell { border-right: none !important; }
+  }
+</style>

@@ -13,61 +13,92 @@ const seo = {
 <Layout seo={seo}>
 
   <!-- ═══════════════════════════════════════
-       HERO
+       HERO — two-column system
   ═══════════════════════════════════════ -->
-  <section class="relative bg-brand-black w-full min-h-screen flex items-center justify-center overflow-hidden">
-    <div class="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--color-brand-gray)_0%,_transparent_70%)]"></div>
-
-    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10 flex flex-col items-center">
-      <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">Serigrafía de alto nivel · Bogotá, Colombia</p>
-      <h1 class="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 tracking-tight leading-tight">
-        DROPJECT / Estampado a otro nivel.
+  <section class="hero-section">
+    <!-- Left -->
+    <div class="hero-left">
+      <p class="hero-tag">Serigrafía de alto nivel · Bogotá, Colombia</p>
+      <h1 class="hero-title">
+        DROPJECT<span>/ Estampado<br/>a otro nivel.</span>
       </h1>
-      <p class="mt-4 text-xl text-brand-gray max-w-2xl mx-auto mb-6">
-        Drops de moda con calidad, estampados en serigrafía a otro nivel.
-      </p>
-      <p class="text-brand-gray/70 italic text-base max-w-xl mx-auto mb-10">
-        "DROPJECT, estampado a otro nivel, prendas para las mejores marcas."
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="px-10 py-4 bg-white text-brand-black rounded-md font-bold text-lg hover:bg-brand-beige transition-all shadow-[0_0_30px_rgba(255,255,255,0.25)] hover:shadow-[0_0_45px_rgba(255,255,255,0.4)] flex items-center gap-2 justify-center">
+      <p class="hero-sub">Drops de moda con calidad, estampados en serigrafía a otro nivel.</p>
+      <p class="hero-italic">"DROPJECT, estampado a otro nivel, prendas para las mejores marcas."</p>
+      <div class="hero-actions">
+        <a href="/contacto" class="btn-primary">
           Cotizar Ahora
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
-        <a href="/servicios" class="px-10 py-4 bg-brand-dark/50 text-white border border-brand-gray/50 rounded-md font-semibold text-lg hover:bg-brand-dark hover:border-brand-gray transition-all">
+        <a href="/servicios" class="btn-ghost">
           Ver Servicios
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
       </div>
     </div>
 
+    <!-- Right — decorativo -->
+    <div class="hero-right" aria-hidden="true">
+      <div class="hero-bg-text">DRP</div>
+      <div class="hero-iso">
+        <img src="/logos/01.png" alt="" class="hero-logo-deco" />
+      </div>
+    </div>
+
     <!-- Scroll indicator -->
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-brand-gray/50 animate-bounce">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
     </div>
   </section>
 
   <!-- ═══════════════════════════════════════
+       MARQUEE — decorative band
+  ═══════════════════════════════════════ -->
+  <div class="marquee-wrap">
+    <div class="marquee-track">
+      <span class="marquee-item">Serigrafía</span>
+      <span class="marquee-item">Diseño Gráfico</span>
+      <span class="marquee-item">Confección</span>
+      <span class="marquee-item">Alto Relieve 3D</span>
+      <span class="marquee-item">Producción Textil</span>
+      <span class="marquee-item">Full-Pack</span>
+      <span class="marquee-item">Estampado Premium</span>
+      <span class="marquee-item">Bogotá, Colombia</span>
+      <span class="marquee-item">Serigrafía</span>
+      <span class="marquee-item">Diseño Gráfico</span>
+      <span class="marquee-item">Confección</span>
+      <span class="marquee-item">Alto Relieve 3D</span>
+      <span class="marquee-item">Producción Textil</span>
+      <span class="marquee-item">Full-Pack</span>
+      <span class="marquee-item">Estampado Premium</span>
+      <span class="marquee-item">Bogotá, Colombia</span>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════
        TRUST BAR — Números que generan confianza
   ═══════════════════════════════════════ -->
-  <section class="bg-brand-dark border-y border-brand-gray/10 py-10">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-        <div>
-          <p class="text-3xl font-bold text-white">18+</p>
-          <p class="text-sm text-brand-gray mt-1">Años de experiencia</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-white">15+</p>
-          <p class="text-sm text-brand-gray mt-1">Técnicas de estampado</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-white">100%</p>
-          <p class="text-sm text-brand-gray mt-1">Producción en Colombia</p>
-        </div>
-        <div>
-          <p class="text-3xl font-bold text-white">B2B</p>
-          <p class="text-sm text-brand-gray mt-1">Marcas &amp; empresas</p>
-        </div>
+  <section class="trust-section">
+    <div class="trust-grid reveal">
+      <div class="stat-card trust-card">
+        <p class="stat-num">01</p>
+        <p class="stat-value">18+</p>
+        <p class="stat-label">Años de experiencia</p>
+      </div>
+      <div class="stat-card trust-card">
+        <p class="stat-num">02</p>
+        <p class="stat-value">15+</p>
+        <p class="stat-label">Técnicas de estampado</p>
+      </div>
+      <div class="stat-card trust-card">
+        <p class="stat-num">03</p>
+        <p class="stat-value">100%</p>
+        <p class="stat-label">Producción en Colombia</p>
+      </div>
+      <div class="stat-card trust-card">
+        <p class="stat-num">04</p>
+        <p class="stat-value">B2B</p>
+        <p class="stat-label">Marcas &amp; empresas</p>
       </div>
     </div>
   </section>
@@ -75,56 +106,50 @@ const seo = {
   <!-- ═══════════════════════════════════════
        SERVICIOS — Preview de los 2 servicios
   ═══════════════════════════════════════ -->
-  <section class="py-24 bg-brand-black text-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-3">Lo que hacemos</p>
-        <h2 class="text-3xl md:text-5xl font-bold text-white">Dos servicios,<br/>una sola exigencia: calidad.</h2>
+  <section class="services-section">
+    <div class="services-inner">
+      <div class="reveal">
+        <p class="section-label">Lo que hacemos</p>
+        <h2 class="section-h2">Dos servicios,<br/>una sola exigencia: calidad.</h2>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+      <div class="services-cards reveal">
 
         <!-- Estampado -->
-        <div class="bg-white text-brand-black rounded-2xl p-10 flex flex-col shadow-lg hover:shadow-2xl transition-shadow">
-          <div class="w-12 h-12 bg-brand-dark rounded-xl mb-6 flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
+        <div class="service-card service-card--light">
+          <div class="service-icon service-icon--dark">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Estampado en Serigrafía</h3>
-          <p class="text-brand-dark mb-6 leading-relaxed">Producción en múltiples técnicas premium: Plastisol, 3D, Flock, Reflectivo, Glow in the Dark y más. Traes tu prenda, nosotros ponemos el arte.</p>
-          <ul class="space-y-2 text-sm text-brand-dark mb-8 flex-grow">
-            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Separación de diseños y artes listas para impresión</li>
-            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Dirección creativa y diseños exclusivos</li>
-            <li class="flex items-center gap-2"><span class="font-bold">✔</span> Fotografías de resultados incluidas</li>
+          <h3 class="service-title">Estampado en Serigrafía</h3>
+          <p class="service-desc">Producción en múltiples técnicas premium: Plastisol, 3D, Flock, Reflectivo, Glow in the Dark y más. Traes tu prenda, nosotros ponemos el arte.</p>
+          <ul class="service-features">
+            <li><span>✔</span> Separación de diseños y artes listas para impresión</li>
+            <li><span>✔</span> Dirección creativa y diseños exclusivos</li>
+            <li><span>✔</span> Fotografías de resultados incluidas</li>
           </ul>
-          <a href="/contacto?servicio=estampado" class="mt-auto block text-center px-6 py-3 bg-brand-black text-white rounded-md font-semibold hover:bg-brand-dark transition-colors">
-            Cotizar Estampado →
-          </a>
+          <a href="/contacto?servicio=estampado" class="service-cta service-cta--dark">Cotizar Estampado →</a>
         </div>
 
         <!-- Paquete Completo -->
-        <div class="bg-brand-dark text-white rounded-2xl p-10 flex flex-col border border-white/10 shadow-lg hover:shadow-2xl transition-shadow relative overflow-hidden">
-          <span class="absolute top-5 right-5 text-xs font-bold uppercase tracking-widest bg-white text-brand-black px-3 py-1 rounded-full">Full-Pack</span>
-          <div class="w-12 h-12 bg-white/10 rounded-xl mb-6 flex items-center justify-center">
-            <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
+        <div class="service-card service-card--dark">
+          <span class="service-badge">Full-Pack</span>
+          <div class="service-icon service-icon--light">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
           </div>
-          <h3 class="text-2xl font-bold mb-3">Paquete Completo</h3>
-          <p class="text-brand-gray mb-6 leading-relaxed">Desde el patronaje hasta la entrega final empaquetada. La solución integral para marcas que quieren delegar todo el proceso productivo.</p>
-          <ul class="space-y-2 text-sm text-brand-gray mb-8 flex-grow">
-            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Patronaje, fichas técnicas y selección de telas</li>
-            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Muestras previas y producción completa</li>
-            <li class="flex items-center gap-2"><span class="text-white font-bold">✔</span> Entrega final en packaging organizado</li>
+          <h3 class="service-title service-title--light">Paquete Completo</h3>
+          <p class="service-desc service-desc--mid">Desde el patronaje hasta la entrega final empaquetada. La solución integral para marcas que quieren delegar todo el proceso productivo.</p>
+          <ul class="service-features service-features--light">
+            <li><span>✔</span> Patronaje, fichas técnicas y selección de telas</li>
+            <li><span>✔</span> Muestras previas y producción completa</li>
+            <li><span>✔</span> Entrega final en packaging organizado</li>
           </ul>
-          <a href="/contacto?servicio=paquete-completo" class="mt-auto block text-center px-6 py-3 bg-white text-brand-black rounded-md font-semibold hover:bg-brand-beige transition-colors">
-            Cotizar Paquete Completo →
-          </a>
+          <a href="/contacto?servicio=paquete-completo" class="service-cta service-cta--light">Cotizar Paquete Completo →</a>
         </div>
 
       </div>
 
-      <div class="text-center mt-10">
-        <a href="/servicios" class="text-brand-gray hover:text-white transition-colors text-sm font-medium underline underline-offset-4">
-          Ver descripción completa de servicios →
-        </a>
+      <div class="services-more reveal">
+        <a href="/servicios" class="services-more-link">Ver descripción completa de servicios →</a>
       </div>
     </div>
   </section>
@@ -132,28 +157,27 @@ const seo = {
   <!-- ═══════════════════════════════════════
        CÓMO FUNCIONA — 3 pasos
   ═══════════════════════════════════════ -->
-  <section class="py-24 bg-brand-light text-brand-black">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-16">
-        <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-3">Proceso</p>
-        <h2 class="text-3xl md:text-4xl font-bold">Así de simple es empezar.</h2>
+  <section class="proceso-section">
+    <div class="proceso-inner">
+      <div class="reveal">
+        <p class="section-label">Proceso</p>
+        <h2 class="section-h2">Así de simple<br/>es empezar.</h2>
       </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        <div class="text-center">
-          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">1</div>
-          <h3 class="text-xl font-bold mb-3">Cotiza tu proyecto</h3>
-          <p class="text-brand-dark leading-relaxed">Llena el formulario o escríbenos por WhatsApp con los detalles de tu pedido: servicio, prendas, cantidad y diseño.</p>
+      <div class="proceso-grid">
+        <div class="paso-card reveal">
+          <div class="paso-num-outline">01</div>
+          <h3 class="paso-title">Cotiza tu proyecto</h3>
+          <p class="paso-desc">Llena el formulario o escríbenos por WhatsApp con los detalles de tu pedido: servicio, prendas, cantidad y diseño.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">2</div>
-          <h3 class="text-xl font-bold mb-3">Producción a medida</h3>
-          <p class="text-brand-dark leading-relaxed">Coordinamos contigo cada detalle: técnica, telas, muestras previas y tiempos de entrega. Sin sorpresas.</p>
+        <div class="paso-card reveal">
+          <div class="paso-num-outline">02</div>
+          <h3 class="paso-title">Producción a medida</h3>
+          <p class="paso-desc">Coordinamos contigo cada detalle: técnica, telas, muestras previas y tiempos de entrega. Sin sorpresas.</p>
         </div>
-        <div class="text-center">
-          <div class="w-14 h-14 bg-brand-black text-white rounded-full flex items-center justify-center text-xl font-bold mx-auto mb-5">3</div>
-          <h3 class="text-xl font-bold mb-3">Entrega impecable</h3>
-          <p class="text-brand-dark leading-relaxed">Recibe tu colección lista: organizada por referencia, tallas y diseño, en el packaging que tu marca necesita.</p>
+        <div class="paso-card reveal">
+          <div class="paso-num-outline">03</div>
+          <h3 class="paso-title">Entrega impecable</h3>
+          <p class="paso-desc">Recibe tu colección lista: organizada por referencia, tallas y diseño, en el packaging que tu marca necesita.</p>
         </div>
       </div>
     </div>
@@ -162,32 +186,28 @@ const seo = {
   <!-- ═══════════════════════════════════════
        NOSOTROS — Credencial rápida
   ═══════════════════════════════════════ -->
-  <section class="py-24 bg-brand-black text-white border-t border-brand-dark">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-        <div>
-          <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">Sobre nosotros</p>
-          <h2 class="text-3xl md:text-4xl font-bold mb-6 leading-tight">18 años<br/>en la industria textil.</h2>
-          <p class="text-brand-gray leading-relaxed mb-8">
-            Con más de 18 años de experiencia en serigrafía y producción textil en Colombia, ofrecemos alianzas sólidas y duraderas. Nuestra pasión por la moda se refleja en la más alta calidad de estampación, técnicas innovadoras y un servicio de full-packing de alto nivel.
-          </p>
-          <a href="/nosotros" class="text-white font-semibold hover:text-brand-light transition-colors underline underline-offset-4">
-            Conocer más sobre DropJect →
-          </a>
+  <section class="nosotros-section">
+    <div class="nosotros-inner">
+      <div class="nosotros-text reveal">
+        <p class="section-label">Sobre nosotros</p>
+        <h2 class="section-h2">18 años<br/>en la industria textil.</h2>
+        <p class="nosotros-body">
+          Con más de 18 años de experiencia en serigrafía y producción textil en Colombia, ofrecemos alianzas sólidas y duraderas. Nuestra pasión por la moda se refleja en la más alta calidad de estampación, técnicas innovadoras y un servicio de full-packing de alto nivel.
+        </p>
+        <a href="/nosotros" class="nosotros-link">Conocer más sobre DropJect →</a>
+      </div>
+      <div class="nosotros-stats reveal">
+        <div class="stat-mini">
+          <p class="stat-mini-val">18+</p>
+          <p class="stat-mini-label">Años de experiencia</p>
         </div>
-        <div class="grid grid-cols-2 gap-4">
-          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10">
-            <p class="text-3xl font-bold text-white mb-1">18+</p>
-            <p class="text-brand-gray text-sm">Años de experiencia</p>
-          </div>
-          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10">
-            <p class="text-3xl font-bold text-white mb-1">15+</p>
-            <p class="text-brand-gray text-sm">Técnicas premium</p>
-          </div>
-          <div class="bg-brand-dark rounded-xl p-6 border border-brand-gray/10 col-span-2">
-            <p class="text-2xl font-bold text-white mb-1">Bogotá, Colombia</p>
-            <p class="text-brand-gray text-sm">Taller propio · Producción local</p>
-          </div>
+        <div class="stat-mini">
+          <p class="stat-mini-val">15+</p>
+          <p class="stat-mini-label">Técnicas premium</p>
+        </div>
+        <div class="stat-mini stat-mini--wide">
+          <p class="stat-mini-val">Bogotá, Colombia</p>
+          <p class="stat-mini-label">Taller propio · Producción local</p>
         </div>
       </div>
     </div>
@@ -196,19 +216,17 @@ const seo = {
   <!-- ═══════════════════════════════════════
        CTA FINAL — Cierre antes del footer
   ═══════════════════════════════════════ -->
-  <section class="py-24 bg-white text-brand-black">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <p class="text-brand-gray uppercase tracking-widest text-sm font-medium mb-4">¿Listo para empezar?</p>
-      <h2 class="text-3xl md:text-5xl font-bold mb-6 leading-tight">Tu próxima colección<br/>empieza aquí.</h2>
-      <p class="text-brand-dark mb-10 text-lg max-w-xl mx-auto">
-        Cotiza tu proyecto hoy mismo. Te respondemos en tiempo récord con la mejor propuesta para tu marca.
-      </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/contacto" class="px-10 py-4 bg-brand-black text-white rounded-md font-bold text-lg hover:bg-brand-dark transition-all shadow-xl flex items-center gap-2 justify-center">
+  <section class="cta-section">
+    <div class="cta-inner reveal">
+      <p class="section-label" style="color: var(--dark);">¿Listo para empezar?</p>
+      <h2 class="cta-h2">Tu próxima colección<br/>empieza aquí.</h2>
+      <p class="cta-body">Cotiza tu proyecto hoy mismo. Te respondemos en tiempo récord con la mejor propuesta para tu marca.</p>
+      <div class="cta-actions">
+        <a href="/contacto" class="btn-cta-primary">
           Cotizar Ahora
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
         </a>
-        <a href="https://wa.me/573117694342" target="_blank" rel="noopener noreferrer" class="px-10 py-4 bg-[#25D366] text-white rounded-md font-bold text-lg hover:bg-[#20BE5C] transition-all flex items-center gap-2 justify-center">
+        <a href="https://wa.me/573117694342" target="_blank" rel="noopener noreferrer" class="btn-cta-wa">
           <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
           WhatsApp
         </a>
@@ -217,3 +235,432 @@ const seo = {
   </section>
 
 </Layout>
+
+<style>
+/* ── HERO ── */
+.hero-section {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  background: var(--black);
+}
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 8rem 3rem 5rem;
+  position: relative;
+  z-index: 2;
+}
+.hero-tag {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-family: 'Inter', sans-serif;
+}
+.hero-tag::before {
+  content: '';
+  display: block;
+  width: 2rem;
+  height: 1px;
+  background: var(--mid);
+}
+.hero-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3.5rem, 7vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 0.92;
+  color: var(--white);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hero-title span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--pale);
+}
+.hero-sub {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--mid);
+  max-width: 360px;
+  margin-bottom: 0.75rem;
+  font-family: 'Inter', sans-serif;
+}
+.hero-italic {
+  font-size: 0.8rem;
+  color: rgba(140,139,136,0.6);
+  font-style: italic;
+  max-width: 360px;
+  margin-bottom: 2.5rem;
+  font-family: 'Inter', sans-serif;
+}
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--black);
+  background: var(--white);
+  padding: 1rem 2rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.2s, background 0.2s;
+}
+.btn-primary svg { width: 16px; }
+.btn-primary:hover { background: var(--light); transform: translateY(-2px); }
+.btn-ghost {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s;
+}
+.btn-ghost svg { width: 16px; }
+.btn-ghost:hover { color: var(--white); }
+.hero-right {
+  position: relative;
+  overflow: hidden;
+}
+.hero-right::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, var(--black) 0%, transparent 35%);
+  z-index: 1;
+}
+.hero-iso {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+.hero-logo-deco {
+  width: 55%;
+  opacity: 0.12;
+  filter: brightness(2);
+}
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--mid);
+  z-index: 3;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── TRUST BAR ── */
+.trust-section {
+  background: var(--black);
+  border-top: 1px solid rgba(191,189,184,0.1);
+  padding: 5rem 3rem;
+}
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid rgba(191,189,184,0.12);
+}
+.trust-card {
+  padding: 2.5rem 2rem;
+  border-right: 1px solid rgba(191,189,184,0.12);
+  cursor: default;
+}
+.trust-card:last-child { border-right: none; }
+.stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+.stat-value {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1;
+  margin-bottom: 0.5rem;
+}
+.stat-label {
+  font-size: 0.8rem;
+  color: var(--mid);
+  font-family: 'Inter', sans-serif;
+}
+
+/* ── SERVICIOS ── */
+.services-section {
+  padding: 8rem 3rem;
+  background: var(--black);
+  border-top: 1px solid rgba(191,189,184,0.1);
+}
+.services-inner { max-width: 1100px; margin: 0 auto; }
+.section-h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 4rem;
+}
+.services-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(191,189,184,0.12);
+  border: 1px solid rgba(191,189,184,0.12);
+}
+.service-card {
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.service-card--light { background: var(--white); color: var(--black); }
+.service-card--dark  { background: var(--dark); color: var(--white); overflow: hidden; }
+.service-badge {
+  position: absolute;
+  top: 1.5rem; right: 1.5rem;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  background: var(--white);
+  color: var(--black);
+  padding: 0.3rem 0.75rem;
+  font-family: 'Space Grotesk', sans-serif;
+}
+.service-icon { width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
+.service-icon--dark  { background: var(--dark); color: var(--white); }
+.service-icon--light { background: rgba(255,255,255,0.1); color: var(--white); }
+.service-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  color: var(--black);
+}
+.service-title--light { color: var(--white); }
+.service-desc { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; color: var(--dark); font-family: 'Inter', sans-serif; flex-grow: 1; }
+.service-desc--mid { color: var(--mid); }
+.service-features { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
+.service-features li { font-size: 0.8rem; display: flex; gap: 0.5rem; font-family: 'Inter', sans-serif; color: var(--dark); }
+.service-features li span { font-weight: 700; flex-shrink: 0; }
+.service-features--light li { color: var(--pale); }
+.service-features--light li span { color: var(--white); }
+.service-cta {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 0.85rem 1.5rem;
+  display: block;
+  text-align: center;
+  transition: background 0.2s, transform 0.2s;
+}
+.service-cta--dark  { background: var(--black); color: var(--white); }
+.service-cta--dark:hover  { background: var(--dark); transform: translateY(-2px); }
+.service-cta--light { background: var(--white); color: var(--black); }
+.service-cta--light:hover { background: var(--light); transform: translateY(-2px); }
+.services-more { text-align: center; margin-top: 2rem; }
+.services-more-link { font-size: 0.75rem; color: var(--mid); text-decoration: none; letter-spacing: 0.06em; border-bottom: 1px solid currentColor; padding-bottom: 2px; transition: color 0.2s; font-family: 'Inter', sans-serif; }
+.services-more-link:hover { color: var(--white); }
+
+/* ── PROCESO ── */
+.proceso-section {
+  padding: 8rem 3rem;
+  background: var(--black);
+  border-top: 1px solid rgba(191,189,184,0.1);
+}
+.proceso-inner { max-width: 1100px; margin: 0 auto; }
+.proceso-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border: 1px solid rgba(191,189,184,0.12);
+  margin-top: 3rem;
+}
+.paso-card {
+  padding: 3rem 2.5rem;
+  border-right: 1px solid rgba(191,189,184,0.12);
+}
+.paso-card:last-child { border-right: none; }
+.paso-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+.paso-desc { font-size: 0.8rem; line-height: 1.7; color: var(--mid); font-family: 'Inter', sans-serif; }
+
+/* ── NOSOTROS ── */
+.nosotros-section {
+  padding: 8rem 3rem;
+  background: var(--black);
+  border-top: 1px solid rgba(191,189,184,0.1);
+}
+.nosotros-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6rem;
+  align-items: start;
+}
+.nosotros-body {
+  color: var(--mid);
+  font-size: 0.9rem;
+  line-height: 1.8;
+  margin: 1.5rem 0 2rem;
+  font-family: 'Inter', sans-serif;
+}
+.nosotros-link {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--mid);
+  padding-bottom: 2px;
+  transition: border-color 0.2s;
+}
+.nosotros-link:hover { border-color: var(--white); }
+.nosotros-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5px;
+  background: rgba(191,189,184,0.12);
+  border: 1px solid rgba(191,189,184,0.12);
+  align-self: start;
+  margin-top: 5rem;
+}
+.stat-mini {
+  background: var(--black);
+  padding: 2rem 1.5rem;
+}
+.stat-mini--wide { grid-column: span 2; }
+.stat-mini-val {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+.stat-mini-label { font-size: 0.75rem; color: var(--mid); font-family: 'Inter', sans-serif; }
+
+/* ── CTA FINAL ── */
+.cta-section {
+  padding: 8rem 3rem;
+  background: var(--white);
+  border-top: 1px solid rgba(191,189,184,0.3);
+}
+.cta-inner {
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: center;
+}
+.cta-h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  text-transform: uppercase;
+  color: var(--black);
+  letter-spacing: -0.02em;
+  margin-bottom: 1.5rem;
+}
+.cta-body { font-size: 0.95rem; line-height: 1.8; color: var(--dark); margin-bottom: 3rem; font-family: 'Inter', sans-serif; }
+.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.btn-cta-primary {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--black);
+  padding: 1.1rem 2.5rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-cta-primary:hover { background: var(--dark); transform: translateY(-2px); }
+.btn-cta-wa {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: #25D366;
+  padding: 1.1rem 2.5rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-cta-wa:hover { background: #20BE5C; transform: translateY(-2px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero-section { grid-template-columns: 1fr; }
+  .hero-right { display: none; }
+  .hero-left { padding: 7rem 1.5rem 5rem; }
+  .hero-scroll { left: 1.5rem; }
+  .trust-section { padding: 4rem 1.5rem; }
+  .trust-grid { grid-template-columns: 1fr 1fr; }
+  .trust-card { border-bottom: 1px solid rgba(191,189,184,0.12); }
+  .services-section,
+  .proceso-section,
+  .nosotros-section,
+  .cta-section { padding: 5rem 1.5rem; }
+  .services-cards { grid-template-columns: 1fr; }
+  .proceso-grid { grid-template-columns: 1fr; }
+  .paso-card { border-right: none; border-bottom: 1px solid rgba(191,189,184,0.12); }
+  .nosotros-inner { grid-template-columns: 1fr; gap: 3rem; }
+  .nosotros-stats { margin-top: 0; }
+}
+</style>

@@ -30,11 +30,10 @@ const tecnicas = [
 ---
 
 <Layout seo={seo}>
-  <section class="bg-brand-black pt-32 pb-16 px-4 sm:px-6 lg:px-8 text-center border-b border-brand-dark">
-    <h1 class="text-4xl md:text-5xl font-bold text-white mb-4">Nuestro Trabajo</h1>
-    <p class="text-brand-gray max-w-2xl mx-auto text-lg">
-      Explora algunos de nuestros proyectos recientes. Calidad que se ve y se siente.
-    </p>
+  <section class="page-hero">
+    <p class="page-hero-label">Portafolio</p>
+    <h1 class="page-hero-h1">Nuestro<br/>Trabajo.</h1>
+    <p class="page-hero-desc">Explora algunos de nuestros proyectos recientes. Calidad que se ve y se siente.</p>
   </section>
 
   <!-- Portafolio Section (Migrado desde index) -->
@@ -91,38 +90,35 @@ const tecnicas = [
   </section>
 
   <!-- Técnicas de Estampado Section -->
-  <section class="py-12 bg-brand-light text-brand-black border-t border-brand-gray/20" id="tecnicas">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6">Técnicas de Estampado</h2>
-      <p class="text-xl font-medium text-brand-dark max-w-3xl mx-auto leading-relaxed">
+  <section class="py-20 bg-[var(--black)] text-[var(--white)] border-t border-[rgba(191,189,184,0.1)]" id="tecnicas">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="reveal" style="margin-bottom:3rem;">
+        <p class="section-label">Catálogo</p>
+        <h2 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(2.2rem,4.5vw,4rem);font-weight:700;line-height:1;text-transform:uppercase;letter-spacing:-0.02em;color:var(--white);margin-bottom:1rem;">Técnicas de Estampado</h2>
+      </div>
+      <p class="text-base text-[var(--mid)] max-w-3xl leading-relaxed" style="font-family:'Inter',sans-serif;margin-bottom:3rem;">
         Un diseño promedio se convierte en una <strong>pieza de colección</strong> cuando usamos la técnica correcta. Explora nuestro catálogo de efectos especiales; desde el tacto nulo del despigmentado hasta el volumen extremo del Puff y 3D.
       </p>
-    </div>
-  </section>
-
-  <section class="py-24 bg-brand-light text-brand-black">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-0 reveal" style="border: 1px solid rgba(191,189,184,0.12);">
 
         {tecnicas.map((tecnica) => (
-          <div class="bg-white rounded-xl p-8 shadow-sm hover:shadow-2xl transition-all duration-300 border border-brand-light/50 group hover:-translate-y-2">
+          <div class="tecnica-card group" style="border-right: 1px solid rgba(191,189,184,0.12); border-bottom: 1px solid rgba(191,189,184,0.12); padding: 2.5rem 2rem; position: relative; overflow: hidden; transition: background 0.3s; cursor: default;">
 
-            <div class="w-14 h-14 bg-brand-dark rounded-xl mb-6 flex items-center justify-center text-white group-hover:bg-brand-black transition-colors shadow-inner">
-              <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-10 h-10 flex items-center justify-center text-[var(--mid)] mb-4 group-hover:text-[var(--white)] transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={tecnica.icono} />
               </svg>
             </div>
 
-            <h3 class="text-2xl font-bold mb-3 tracking-tight group-hover:text-brand-gray transition-colors">{tecnica.nombre}</h3>
+            <h3 style="font-family:'Space Grotesk',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:var(--light);margin-bottom:0.75rem;">{tecnica.nombre}</h3>
 
-            <p class="text-brand-dark text-base leading-relaxed mb-6 font-medium">
+            <p style="font-size:0.8rem;line-height:1.7;color:var(--mid);margin-bottom:1rem;font-family:'Inter',sans-serif;">
               {tecnica.descripcion}
             </p>
 
-            <div class="mt-auto pt-6 border-t border-brand-light/70">
-              <h4 class="text-xs tracking-wider text-brand-gray uppercase font-bold mb-2">Ideal para:</h4>
-              <p class="text-sm text-brand-black italic">
+            <div style="border-top: 1px solid rgba(191,189,184,0.1); padding-top: 1rem; margin-top: auto;">
+              <h4 style="font-size:0.6rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--dark);margin-bottom:0.25rem;font-family:'Inter',sans-serif;">Ideal para:</h4>
+              <p style="font-size:0.75rem;color:var(--mid);font-family:'Inter',sans-serif;font-style:italic;">
                 {tecnica.uso}
               </p>
             </div>
@@ -132,12 +128,13 @@ const tecnicas = [
       </div>
 
       <!-- CTA -->
-      <div class="mt-20 text-center bg-brand-beige p-12 rounded-2xl shadow-inner border border-brand-gray/20">
-        <h3 class="text-3xl font-bold mb-4">¿Tienes una técnica específica en mente?</h3>
-        <p class="text-brand-dark mb-8 max-w-2xl mx-auto text-lg">
+      <div class="reveal" style="margin-top:4rem;padding:4rem 3rem;background:rgba(191,189,184,0.05);border:1px solid rgba(191,189,184,0.12);text-align:center;">
+        <p class="section-label" style="justify-content:center;">¿Tienes una técnica específica en mente?</p>
+        <h3 style="font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3vw,2.8rem);font-weight:700;text-transform:uppercase;letter-spacing:-0.02em;color:var(--white);margin-bottom:1rem;">Combina técnicas.<br/>Crea algo único.</h3>
+        <p style="font-size:0.85rem;line-height:1.7;color:var(--mid);margin-bottom:2.5rem;max-width:500px;margin-left:auto;margin-right:auto;font-family:'Inter',sans-serif;">
           Nuestro taller en Bogotá está equipado para combinar técnicas (ej. Flock + Alto Relieve) y crear acabados completamente únicos para tu próxima Drop.
         </p>
-        <a href="/contacto" class="px-10 py-4 bg-brand-black text-white rounded-md font-bold text-lg hover:bg-brand-gray transition-all shadow-2xl inline-block hover:scale-105 transform duration-300">
+        <a href="/contacto" style="font-family:'Space Grotesk',sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--black);background:var(--white);padding:1rem 2.5rem;text-decoration:none;display:inline-block;transition:background 0.2s,transform 0.2s;" onmouseover="this.style.background='var(--light)';this.style.transform='translateY(-2px)'" onmouseout="this.style.background='var(--white)';this.style.transform='none'">
           Cotizar mi Proyecto Serigráfico
         </a>
       </div>
@@ -145,3 +142,18 @@ const tecnicas = [
     </div>
   </section>
 </Layout>
+
+<style>
+  .tecnica-card:hover { background: rgba(255,255,255,0.03); }
+  .tecnica-card::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%; height: 2px;
+    background: var(--white);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.4s;
+  }
+  .tecnica-card:hover::after { transform: scaleX(1); }
+</style>
