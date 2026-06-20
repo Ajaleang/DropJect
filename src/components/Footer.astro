@@ -2,7 +2,7 @@
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="border-t border-[rgba(191,189,184,0.1)] bg-[var(--black)] px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
+<footer class="border-t border-[rgba(13,13,13,0.1)] bg-brand-black px-6 md:px-12 py-10 flex flex-col md:flex-row items-center justify-between gap-6">
   <!-- Logo -->
   <a href="/" class="flex items-center gap-3 hover:opacity-80 transition-opacity" aria-label="DropJect — Ir al inicio">
     <span class="logo-mark">
@@ -50,7 +50,7 @@ const currentYear = new Date().getFullYear();
     display: inline-flex;
     align-items: center;
     gap: 0.45rem;
-    color: var(--white);
+    color: var(--color-brand-white);
     opacity: 0.6;
   }
   .logo-wordmark {
@@ -63,7 +63,7 @@ const currentYear = new Date().getFullYear();
 
   .footer-copy {
     font-size: 0.7rem;
-    color: var(--dark);
+    color: var(--color-brand-gray);
     letter-spacing: 0.05em;
     font-family: 'Inter', sans-serif;
   }
@@ -71,16 +71,16 @@ const currentYear = new Date().getFullYear();
     font-size: 0.7rem;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--mid);
+    color: var(--color-brand-gray);
     text-decoration: none;
     font-family: 'Inter', sans-serif;
     transition: color 0.2s;
   }
-  .footer-link:hover { color: var(--white); }
+  .footer-link:hover { color: var(--color-brand-white); }
   .footer-social {
-    color: var(--mid);
+    color: var(--color-brand-gray);
     transition: color 0.2s, transform 0.2s;
     display: inline-flex;
   }
-  .footer-social:hover { color: var(--white); transform: translateY(-2px); }
+  .footer-social:hover { color: var(--color-brand-white); transform: translateY(-2px); }
 </style>
