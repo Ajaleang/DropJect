@@ -1,665 +1,491 @@
 ---
-import Layout from '../layouts/Layout.astro';
+const WA = 'https://wa.me/573117694342';
+const EMAIL = 'contacto@dropject.com';
+const IG = 'https://instagram.com/dropject';
+const SITE_URL = 'https://dropject.com';
 
 const seo = {
-	title: 'DropJect | Serigrafía Premium y Producción Textil en Bogotá',
-	description: 'Especialistas en serigrafía de alto nivel en Bogotá. Estampado premium, paquete completo de producción textil y más de 15 técnicas exclusivas. ¡Cotiza hoy!',
-	keywords: 'serigrafía Bogotá, estampado premium, producción textil, paquete completo textil, streetwear Colombia, merch artistas, uniformes corporativos, DropJect',
-	canonicalURL: '/',
-	type: 'website'
+  title: 'DropJect | Próximamente — Estampado a otro nivel en Bogotá',
+  description:
+    'DropJect — Serigrafía premium y producción textil en Bogotá, Colombia. Nueva web en camino. Entérate del lanzamiento y conversemos tu proyecto: WhatsApp, Instagram o correo.',
+  keywords:
+    'serigrafía Bogotá, estampado premium, producción textil, paquete completo textil, streetwear Colombia, merch artistas, uniformes corporativos, DropJect, próximamente',
+  type: 'website'
 };
+
+const fullOgImage = `${SITE_URL}/logos/04.png`;
 ---
 
-<Layout seo={seo}>
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- ═══════════════════════════════════════
-       HERO — two-column system
-  ═══════════════════════════════════════ -->
-  <section class="hero-section">
-    <!-- Left -->
-    <div class="hero-left">
-      <p class="hero-tag">Serigrafía de alto nivel · Bogotá, Colombia</p>
-      <h1 class="hero-title">
-        DROPJECT<span>/ Estampado<br/>a otro nivel.</span>
+  <title>{seo.title}</title>
+  <meta name="title" content={seo.title} />
+  <meta name="description" content={seo.description} />
+  <meta name="keywords" content={seo.keywords} />
+  <meta name="author" content="DropJect" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#F5F3EF" />
+  <link rel="canonical" href={SITE_URL} />
+  <meta name="color-scheme" content="light" />
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" href="/favicon.ico" />
+
+  <meta property="og:type" content={seo.type} />
+  <meta property="og:url" content={SITE_URL} />
+  <meta property="og:title" content={seo.title} />
+  <meta property="og:description" content={seo.description} />
+  <meta property="og:image" content={fullOgImage} />
+  <meta property="og:site_name" content="DropJect" />
+  <meta property="og:locale" content="es_CO" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={SITE_URL} />
+  <meta name="twitter:title" content={seo.title} />
+  <meta name="twitter:description" content={seo.description} />
+  <meta name="twitter:image" content={fullOgImage} />
+  <meta name="twitter:creator" content="@dropject" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    rel="preload"
+    as="style"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap"
+  />
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap"
+  />
+
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "DropJect",
+    "url": SITE_URL,
+    "logo": `${SITE_URL}/logos/04.png`,
+    "image": fullOgImage,
+    "email": EMAIL,
+    "telephone": "+573117694342",
+    "description": "Serigrafía premium y producción textil en Bogotá, Colombia. Estampado a otro nivel para marcas exigentes.",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Bogotá",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    },
+    "sameAs": [IG, WA]
+  })} />
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "DropJect",
+    "url": SITE_URL,
+    "inLanguage": "es-CO",
+    "publisher": { "@type": "Organization", "name": "DropJect" }
+  })} />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <header class="site-header">
+    <a href="/" class="brand" aria-label="DropJect — Inicio">
+      <svg class="brand-mark" width="26" height="26" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+        <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+        <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+        <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
+      </svg>
+      <span class="brand-word">DropJect</span>
+    </a>
+    <span class="locale">Bogotá · Colombia</span>
+  </header>
+
+  <main id="main">
+    <!-- ═════ HERO ═════ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <p class="eyebrow"><span class="dash"></span>Próximamente · Coming Soon</p>
+
+      <h1 id="hero-title" class="hero-title">
+        DropJect
+        <span class="hero-stroke">/ Estampado<br />a&nbsp;otro&nbsp;nivel.</span>
       </h1>
-      <p class="hero-sub">Drops de moda con calidad, estampados en serigrafía a otro nivel.</p>
-      <p class="hero-italic">"DROPJECT, estampado a otro nivel, prendas para las mejores marcas."</p>
-      <div class="hero-actions">
-        <a href="/contacto" class="btn-primary">
-          Cotizar Ahora
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-        <a href="/servicios" class="btn-ghost">
-          Ver Servicios
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </a>
-      </div>
-    </div>
 
-    <!-- Right — decorativo -->
-    <div class="hero-right" aria-hidden="true">
-      <div class="hero-bg-text">DRP</div>
-      <div class="hero-iso">
-        <img src="/logos/01.png" alt="" class="hero-logo-deco" />
-      </div>
-    </div>
+      <p class="lead">
+        Serigrafía de alto nivel y producción textil integral para marcas exigentes.
+        Estamos afinando cada detalle de la nueva plataforma. Pronto vas a poder
+        cotizar, explorar el portafolio y conocer cada técnica premium que ofrecemos.
+      </p>
 
-    <!-- Scroll indicator -->
-    <div class="hero-scroll">
-      <div class="scroll-line"></div>
-      Scroll
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       MARQUEE — decorative band
-  ═══════════════════════════════════════ -->
-  <div class="marquee-wrap">
-    <div class="marquee-track">
-      <span class="marquee-item">Serigrafía</span>
-      <span class="marquee-item">Diseño Gráfico</span>
-      <span class="marquee-item">Confección</span>
-      <span class="marquee-item">Alto Relieve 3D</span>
-      <span class="marquee-item">Producción Textil</span>
-      <span class="marquee-item">Full-Pack</span>
-      <span class="marquee-item">Estampado Premium</span>
-      <span class="marquee-item">Bogotá, Colombia</span>
-      <span class="marquee-item">Serigrafía</span>
-      <span class="marquee-item">Diseño Gráfico</span>
-      <span class="marquee-item">Confección</span>
-      <span class="marquee-item">Alto Relieve 3D</span>
-      <span class="marquee-item">Producción Textil</span>
-      <span class="marquee-item">Full-Pack</span>
-      <span class="marquee-item">Estampado Premium</span>
-      <span class="marquee-item">Bogotá, Colombia</span>
-    </div>
-  </div>
-
-  <!-- ═══════════════════════════════════════
-       TRUST BAR — Números que generan confianza
-  ═══════════════════════════════════════ -->
-  <section class="trust-section">
-    <div class="trust-grid reveal">
-      <div class="stat-card trust-card">
-        <p class="stat-num">01</p>
-        <p class="stat-value">18+</p>
-        <p class="stat-label">Años de experiencia</p>
-      </div>
-      <div class="stat-card trust-card">
-        <p class="stat-num">02</p>
-        <p class="stat-value">15+</p>
-        <p class="stat-label">Técnicas de estampado</p>
-      </div>
-      <div class="stat-card trust-card">
-        <p class="stat-num">03</p>
-        <p class="stat-value">100%</p>
-        <p class="stat-label">Producción en Colombia</p>
-      </div>
-      <div class="stat-card trust-card">
-        <p class="stat-num">04</p>
-        <p class="stat-value">B2B</p>
-        <p class="stat-label">Marcas &amp; empresas</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       SERVICIOS — Preview de los 2 servicios
-  ═══════════════════════════════════════ -->
-  <section class="services-section">
-    <div class="services-inner">
-      <div class="reveal">
-        <p class="section-label">Lo que hacemos</p>
-        <h2 class="section-h2">Dos servicios,<br/>una sola exigencia: calidad.</h2>
-      </div>
-
-      <div class="services-cards reveal">
-
-        <!-- Estampado -->
-        <div class="service-card service-card--light">
-          <div class="service-icon service-icon--dark">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"/></svg>
-          </div>
-          <h3 class="service-title">Estampado en Serigrafía</h3>
-          <p class="service-desc">Producción en múltiples técnicas premium: Plastisol, 3D, Flock, Reflectivo, Glow in the Dark y más. Traes tu prenda, nosotros ponemos el arte.</p>
-          <ul class="service-features">
-            <li><span>✔</span> Separación de diseños y artes listas para impresión</li>
-            <li><span>✔</span> Dirección creativa y diseños exclusivos</li>
-            <li><span>✔</span> Fotografías de resultados incluidas</li>
-          </ul>
-          <a href="/contacto?servicio=estampado" class="service-cta service-cta--dark">Cotizar Estampado →</a>
+      <form id="notify" class="notify" novalidate>
+        <label for="email" class="notify-label">Avísame cuando esté listo</label>
+        <div class="notify-field">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            inputmode="email"
+            autocomplete="email"
+            placeholder="tu@correo.com"
+            required
+            aria-required="true"
+          />
+          <button type="submit" class="btn btn-dark">
+            Suscribirme
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </button>
         </div>
+        <p class="notify-foot" aria-live="polite" id="notify-status"></p>
+      </form>
 
-        <!-- Paquete Completo -->
-        <div class="service-card service-card--dark">
-          <span class="service-badge">Full-Pack</span>
-          <div class="service-icon service-icon--light">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4"/></svg>
-          </div>
-          <h3 class="service-title service-title--light">Paquete Completo</h3>
-          <p class="service-desc service-desc--mid">Desde el patronaje hasta la entrega final empaquetada. La solución integral para marcas que quieren delegar todo el proceso productivo.</p>
-          <ul class="service-features service-features--light">
-            <li><span>✔</span> Patronaje, fichas técnicas y selección de telas</li>
-            <li><span>✔</span> Muestras previas y producción completa</li>
-            <li><span>✔</span> Entrega final en packaging organizado</li>
-          </ul>
-          <a href="/contacto?servicio=paquete-completo" class="service-cta service-cta--light">Cotizar Paquete Completo →</a>
-        </div>
-
-      </div>
-
-      <div class="services-more reveal">
-        <a href="/servicios" class="services-more-link">Ver descripción completa de servicios →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       CÓMO FUNCIONA — 3 pasos
-  ═══════════════════════════════════════ -->
-  <section class="proceso-section">
-    <div class="proceso-inner">
-      <div class="reveal">
-        <p class="section-label">Proceso</p>
-        <h2 class="section-h2">Así de simple<br/>es empezar.</h2>
-      </div>
-      <div class="proceso-grid">
-        <div class="paso-card reveal">
-          <div class="paso-num-outline">01</div>
-          <h3 class="paso-title">Cotiza tu proyecto</h3>
-          <p class="paso-desc">Llena el formulario o escríbenos por WhatsApp con los detalles de tu pedido: servicio, prendas, cantidad y diseño.</p>
-        </div>
-        <div class="paso-card reveal">
-          <div class="paso-num-outline">02</div>
-          <h3 class="paso-title">Producción a medida</h3>
-          <p class="paso-desc">Coordinamos contigo cada detalle: técnica, telas, muestras previas y tiempos de entrega. Sin sorpresas.</p>
-        </div>
-        <div class="paso-card reveal">
-          <div class="paso-num-outline">03</div>
-          <h3 class="paso-title">Entrega impecable</h3>
-          <p class="paso-desc">Recibe tu colección lista: organizada por referencia, tallas y diseño, en el packaging que tu marca necesita.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       NOSOTROS — Credencial rápida
-  ═══════════════════════════════════════ -->
-  <section class="nosotros-section">
-    <div class="nosotros-inner">
-      <div class="nosotros-text reveal">
-        <p class="section-label">Sobre nosotros</p>
-        <h2 class="section-h2">18 años<br/>en la industria textil.</h2>
-        <p class="nosotros-body">
-          Con más de 18 años de experiencia en serigrafía y producción textil en Colombia, ofrecemos alianzas sólidas y duraderas. Nuestra pasión por la moda se refleja en la más alta calidad de estampación, técnicas innovadoras y un servicio de full-packing de alto nivel.
-        </p>
-        <a href="/nosotros" class="nosotros-link">Conocer más sobre DropJect →</a>
-      </div>
-      <div class="nosotros-stats reveal">
-        <div class="stat-mini">
-          <p class="stat-mini-val">18+</p>
-          <p class="stat-mini-label">Años de experiencia</p>
-        </div>
-        <div class="stat-mini">
-          <p class="stat-mini-val">15+</p>
-          <p class="stat-mini-label">Técnicas premium</p>
-        </div>
-        <div class="stat-mini stat-mini--wide">
-          <p class="stat-mini-val">Bogotá, Colombia</p>
-          <p class="stat-mini-label">Taller propio · Producción local</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ═══════════════════════════════════════
-       CTA FINAL — Cierre antes del footer
-  ═══════════════════════════════════════ -->
-  <section class="cta-section">
-    <div class="cta-inner reveal">
-      <p class="section-label" style="color: var(--color-brand-dark);">¿Listo para empezar?</p>
-      <h2 class="cta-h2">Tu próxima colección<br/>empieza aquí.</h2>
-      <p class="cta-body">Cotiza tu proyecto hoy mismo. Te respondemos en tiempo récord con la mejor propuesta para tu marca.</p>
-      <div class="cta-actions">
-        <a href="/contacto" class="btn-cta-primary">
-          Cotizar Ahora
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
-        </a>
-        <a href="https://wa.me/573117694342" target="_blank" rel="noopener noreferrer" class="btn-cta-wa">
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
-          WhatsApp
+      <div class="hero-ctas">
+        <span class="asap">¿Tienes un proyecto ya?</span>
+        <a class="btn btn-wa" href={WA} target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+          Hablar por WhatsApp
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-</Layout>
+    <!-- ═════ MARQUEE ═════ -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Serigrafía</span><span>Diseño gráfico</span><span>Confección</span>
+        <span>Alto Relieve 3D</span><span>Producción textil</span><span>Full-Pack</span>
+        <span>Estampado premium</span><span>Bogotá, Colombia</span>
+        <span>Serigrafía</span><span>Diseño gráfico</span><span>Confección</span>
+        <span>Alto Relieve 3D</span><span>Producción textil</span><span>Full-Pack</span>
+        <span>Estampado premium</span><span>Bogotá, Colombia</span>
+      </div>
+    </div>
+
+    <!-- ═════ CREDENTIALS ═════ -->
+    <section class="stats reveal" aria-label="Credenciales">
+      <div class="stat"><p class="stat-num">01</p><p class="stat-val">18+</p><p class="stat-lbl">Años de experiencia</p></div>
+      <div class="stat"><p class="stat-num">02</p><p class="stat-val">15+</p><p class="stat-lbl">Técnicas de estampado</p></div>
+      <div class="stat"><p class="stat-num">03</p><p class="stat-val">100%</p><p class="stat-lbl">Producción en Colombia</p></div>
+      <div class="stat"><p class="stat-num">04</p><p class="stat-val">B2B</p><p class="stat-lbl">Marcas &amp; empresas</p></div>
+    </section>
+
+    <!-- ═════ WHAT'S COMING ═════ -->
+    <section class="coming reveal" aria-labelledby="coming-title">
+      <p class="eyebrow centered"><span class="dash"></span>Lo que viene<span class="dash"></span></p>
+      <h2 id="coming-title" class="section-title">Una experiencia<br />a la altura de la marca.</h2>
+      <ul class="coming-list">
+        <li>
+          <span class="coming-tag">Servicio</span>
+          <h3>Estampado en serigrafía</h3>
+          <p>Plastisol, 3D, Flock, Reflectivo, Glow in the Dark y más. Traes tu prenda, nosotros ponemos el arte.</p>
+        </li>
+        <li>
+          <span class="coming-tag">Full-Pack</span>
+          <h3>Paquete completo textil</h3>
+          <p>Del patronaje y las fichas técnicas hasta la entrega final empaquetada. Producción end-to-end.</p>
+        </li>
+        <li>
+          <span class="coming-tag">Galería</span>
+          <h3>Portafolio de resultados</h3>
+          <p>Colecciones y casos reales de marcas que ya confiaron en DropJect. Inspiración antes de cotizar.</p>
+        </li>
+        <li>
+          <span class="coming-tag">Cotización</span>
+          <h3>Cotiza online en minutos</h3>
+          <p>Cuéntanos servicio, prendas y cantidades. Respuesta en menos de 24 horas con la mejor propuesta.</p>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="foot-brand">
+      <a href="/" class="brand" aria-label="DropJect — Inicio">
+        <svg class="brand-mark" width="20" height="20" viewBox="0 0 60 60" fill="none" aria-hidden="true">
+          <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+          <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
+          <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
+        </svg>
+        <span class="brand-word">DropJect</span>
+      </a>
+      <p class="foot-copy">&copy; {new Date().getFullYear()} DropJect. Estampado a otro nivel.</p>
+    </div>
+
+    <nav class="foot-contacts" aria-label="Contacto">
+      <a href={WA} target="_blank" rel="noopener noreferrer">WhatsApp · +57 311 769 4342</a>
+      <a href={IG} target="_blank" rel="noopener noreferrer">Instagram · @dropject</a>
+      <a href={`mailto:${EMAIL}`}>{EMAIL}</a>
+    </nav>
+  </footer>
+
+  <script>
+    const reveal = new IntersectionObserver((entries) => {
+      entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('visible'); reveal.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach((el) => reveal.observe(el));
+
+    const form = document.getElementById('notify');
+    const status = document.getElementById('notify-status');
+    form?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = form.querySelector('input[type="email"]');
+      const value = (input?.value || '').trim();
+      const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+      if (!ok) {
+        if (status) status.textContent = 'Ingresa un correo válido, por favor.';
+        input?.focus();
+        return;
+      }
+      const subject = encodeURIComponent('Suscripción al lanzamiento DropJect');
+      const body = encodeURIComponent(`Avísenme cuando el sitio esté listo. Mi correo: ${value}`);
+      window.location.href = `mailto:contacto@dropject.com?subject=${subject}&body=${body}`;
+      if (status) status.textContent = 'Abriendo tu cliente de correo… Gracias.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
 
 <style>
-/* ── HERO ── */
-.hero-section {
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  position: relative;
-  overflow: hidden;
-  background: var(--color-brand-black);
-}
-.hero-left {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  padding: 8rem 3rem 5rem;
-  position: relative;
-  z-index: 2;
-}
-.hero-tag {
-  font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--color-brand-gray);
-  margin-bottom: 2rem;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-family: 'Inter', sans-serif;
-}
-.hero-tag::before {
-  content: '';
-  display: block;
-  width: 2rem;
-  height: 1px;
-  background: var(--color-brand-gray);
-}
-.hero-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(3.5rem, 7vw, 7rem);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 0.92;
-  color: var(--color-brand-white);
-  text-transform: uppercase;
-  margin-bottom: 2rem;
-}
-.hero-title span {
-  display: block;
-  color: transparent;
-  -webkit-text-stroke: 1.5px var(--color-brand-gray);
-}
-.hero-sub {
-  font-size: 0.9rem;
-  line-height: 1.7;
-  color: var(--color-brand-gray);
-  max-width: 360px;
-  margin-bottom: 0.75rem;
-  font-family: 'Inter', sans-serif;
-}
-.hero-italic {
-  font-size: 0.8rem;
-  color: rgba(140,139,136,0.6);
-  font-style: italic;
-  max-width: 360px;
-  margin-bottom: 2.5rem;
-  font-family: 'Inter', sans-serif;
-}
-.hero-actions {
-  display: flex;
-  gap: 1rem;
-  align-items: center;
-  flex-wrap: wrap;
-}
-.btn-primary {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-brand-black);
-  background: var(--color-brand-white);
-  padding: 1rem 2rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: transform 0.2s, background 0.2s;
-}
-.btn-primary svg { width: 16px; }
-.btn-primary:hover { background: var(--color-brand-beige); transform: translateY(-2px); }
-.btn-ghost {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-brand-gray);
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.2s;
-}
-.btn-ghost svg { width: 16px; }
-.btn-ghost:hover { color: var(--color-brand-white); }
-.hero-right {
-  position: relative;
-  overflow: hidden;
-}
-.hero-right::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(to right, var(--color-brand-black) 0%, transparent 35%);
-  z-index: 1;
-}
-.hero-iso {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 2;
-}
-.hero-logo-deco {
-  width: 55%;
-  opacity: 0.15;
-}
-.hero-scroll {
-  position: absolute;
-  bottom: 2.5rem;
-  left: 3rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  color: var(--color-brand-gray);
-  z-index: 3;
-  font-family: 'Inter', sans-serif;
-}
+  :root {
+    --brand-black: #F5F3EF;
+    --brand-dark:  #D9D6CF;
+    --brand-gray:  #8C8B88;
+    --brand-light: #BFBDB8;
+    --brand-beige: #413F3D;
+    --brand-white: #0D0D0D;
+    --line: rgba(13,13,13,0.12);
+    --maxw: 1120px;
+    --font-head: 'Space Grotesk', sans-serif;
+    --font-body: 'Inter', system-ui, sans-serif;
+  }
 
-/* ── TRUST BAR ── */
-.trust-section {
-  background: var(--color-brand-black);
-  border-top: 1px solid rgba(13,13,13,0.1);
-  padding: 5rem 3rem;
-}
-.trust-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  border: 1px solid rgba(13,13,13,0.12);
-}
-.trust-card {
-  padding: 2.5rem 2rem;
-  border-right: 1px solid rgba(13,13,13,0.12);
-  cursor: default;
-}
-.trust-card:last-child { border-right: none; }
-.stat-num {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.15em;
-  color: var(--color-brand-gray);
-  margin-bottom: 1.5rem;
-}
-.stat-value {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--color-brand-white);
-  line-height: 1;
-  margin-bottom: 0.5rem;
-}
-.stat-label {
-  font-size: 0.8rem;
-  color: var(--color-brand-gray);
-  font-family: 'Inter', sans-serif;
-}
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100%;
+    background: var(--brand-black);
+    color: var(--brand-white);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 9999;
+    pointer-events: none; opacity: .18; mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  }
+  a { color: inherit; }
+  img, svg { display: block; }
 
-/* ── SERVICIOS ── */
-.services-section {
-  padding: 8rem 3rem;
-  background: var(--color-brand-black);
-  border-top: 1px solid rgba(13,13,13,0.1);
-}
-.services-inner { max-width: 1100px; margin: 0 auto; }
-.section-h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  font-weight: 700;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--color-brand-white);
-  letter-spacing: -0.02em;
-  margin-bottom: 4rem;
-}
-.services-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5px;
-  background: rgba(13,13,13,0.12);
-  border: 1px solid rgba(13,13,13,0.12);
-}
-.service-card {
-  padding: 3rem;
-  display: flex;
-  flex-direction: column;
-  position: relative;
-}
-.service-card--light { background: var(--color-brand-white); color: var(--color-brand-black); }
-.service-card--dark  { background: var(--color-brand-dark); color: var(--color-brand-white); overflow: hidden; }
-.service-badge {
-  position: absolute;
-  top: 1.5rem; right: 1.5rem;
-  font-size: 0.6rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  background: var(--color-brand-white);
-  color: var(--color-brand-black);
-  padding: 0.3rem 0.75rem;
-  font-family: 'Space Grotesk', sans-serif;
-}
-.service-icon { width: 3rem; height: 3rem; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; }
-.service-icon--dark  { background: var(--color-brand-dark); color: var(--color-brand-white); }
-.service-icon--light { background: rgba(13,13,13,0.08); color: var(--color-brand-white); }
-.service-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 1.3rem;
-  font-weight: 700;
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.02em;
-  color: var(--color-brand-black);
-}
-.service-title--light { color: var(--color-brand-white); }
-.service-desc { font-size: 0.85rem; line-height: 1.7; margin-bottom: 1.5rem; color: var(--color-brand-dark); font-family: 'Inter', sans-serif; flex-grow: 1; }
-.service-desc--mid { color: var(--color-brand-gray); }
-.service-features { list-style: none; padding: 0; margin: 0 0 2rem; display: flex; flex-direction: column; gap: 0.5rem; }
-.service-features li { font-size: 0.8rem; display: flex; gap: 0.5rem; font-family: 'Inter', sans-serif; color: var(--color-brand-dark); }
-.service-features li span { font-weight: 700; flex-shrink: 0; }
-.service-features--light li { color: var(--color-brand-gray); }
-.service-features--light li span { color: var(--color-brand-white); }
-.service-cta {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  text-decoration: none;
-  padding: 0.85rem 1.5rem;
-  display: block;
-  text-align: center;
-  transition: background 0.2s, transform 0.2s;
-}
-.service-cta--dark  { background: var(--color-brand-black); color: var(--color-brand-white); }
-.service-cta--dark:hover  { background: var(--color-brand-dark); transform: translateY(-2px); }
-.service-cta--light { background: var(--color-brand-white); color: var(--color-brand-black); }
-.service-cta--light:hover { background: var(--color-brand-beige); transform: translateY(-2px); }
-.services-more { text-align: center; margin-top: 2rem; }
-.services-more-link { font-size: 0.75rem; color: var(--color-brand-gray); text-decoration: none; letter-spacing: 0.06em; border-bottom: 1px solid currentColor; padding-bottom: 2px; transition: color 0.2s; font-family: 'Inter', sans-serif; }
-.services-more-link:hover { color: var(--color-brand-white); }
+  .skip-link {
+    position: absolute; left: -999px; top: 0; z-index: 10000;
+    background: var(--brand-white); color: var(--brand-black);
+    padding: .5rem 1rem; font-size: .8rem;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
 
-/* ── PROCESO ── */
-.proceso-section {
-  padding: 8rem 3rem;
-  background: var(--color-brand-black);
-  border-top: 1px solid rgba(13,13,13,0.1);
-}
-.proceso-inner { max-width: 1100px; margin: 0 auto; }
-.proceso-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  border: 1px solid rgba(13,13,13,0.12);
-  margin-top: 3rem;
-}
-.paso-card {
-  padding: 3rem 2.5rem;
-  border-right: 1px solid rgba(13,13,13,0.12);
-}
-.paso-card:last-child { border-right: none; }
-.paso-title {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--color-brand-white);
-  margin-bottom: 0.75rem;
-}
-.paso-desc { font-size: 0.8rem; line-height: 1.7; color: var(--color-brand-gray); font-family: 'Inter', sans-serif; }
+  /* ── HEADER ── */
+  .site-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.4rem 2rem; position: relative; z-index: 5;
+  }
+  .brand { display: inline-flex; align-items: center; gap: .55rem; text-decoration: none; color: var(--brand-white); }
+  .brand-mark { flex-shrink: 0; }
+  .brand-word {
+    font-family: var(--font-head); font-weight: 700;
+    letter-spacing: .22em; text-transform: uppercase; font-size: .82rem;
+  }
+  .locale {
+    font-size: .62rem; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--brand-gray); font-family: var(--font-body);
+  }
 
-/* ── NOSOTROS ── */
-.nosotros-section {
-  padding: 8rem 3rem;
-  background: var(--color-brand-black);
-  border-top: 1px solid rgba(13,13,13,0.1);
-}
-.nosotros-inner {
-  max-width: 1100px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 6rem;
-  align-items: start;
-}
-.nosotros-body {
-  color: var(--color-brand-gray);
-  font-size: 0.9rem;
-  line-height: 1.8;
-  margin: 1.5rem 0 2rem;
-  font-family: 'Inter', sans-serif;
-}
-.nosotros-link {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--color-brand-white);
-  text-decoration: none;
-  border-bottom: 1px solid var(--color-brand-gray);
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-}
-.nosotros-link:hover { border-color: var(--color-brand-white); }
-.nosotros-stats {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.5px;
-  background: rgba(13,13,13,0.12);
-  border: 1px solid rgba(13,13,13,0.12);
-  align-self: start;
-  margin-top: 5rem;
-}
-.stat-mini {
-  background: var(--color-brand-black);
-  padding: 2rem 1.5rem;
-}
-.stat-mini--wide { grid-column: span 2; }
-.stat-mini-val {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 2rem;
-  font-weight: 700;
-  color: var(--color-brand-white);
-  margin-bottom: 0.25rem;
-}
-.stat-mini-label { font-size: 0.75rem; color: var(--color-brand-gray); font-family: 'Inter', sans-serif; }
+  /* ── EYEBROW ── */
+  .eyebrow {
+    font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--brand-gray); display: flex; align-items: center; gap: 1rem;
+    font-family: var(--font-body); margin: 0 0 1.6rem;
+  }
+  .eyebrow.centered { justify-content: center; }
+  .dash { display: block; width: 2rem; height: 1px; background: currentColor; flex-shrink: 0; }
 
-/* ── CTA FINAL ── */
-.cta-section {
-  padding: 8rem 3rem;
-  background: var(--color-brand-white);
-  border-top: 1px solid rgba(13,13,13,0.15);
-}
-.cta-inner {
-  max-width: 700px;
-  margin: 0 auto;
-  text-align: center;
-}
-.cta-h2 {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: clamp(2.2rem, 4.5vw, 4rem);
-  font-weight: 700;
-  line-height: 1;
-  text-transform: uppercase;
-  color: var(--color-brand-black);
-  letter-spacing: -0.02em;
-  margin-bottom: 1.5rem;
-}
-.cta-body { font-size: 0.95rem; line-height: 1.8; color: var(--color-brand-dark); margin-bottom: 3rem; font-family: 'Inter', sans-serif; }
-.cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
-.btn-cta-primary {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--color-brand-white);
-  background: var(--color-brand-black);
-  padding: 1.1rem 2.5rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-cta-primary:hover { background: var(--color-brand-dark); transform: translateY(-2px); }
-.btn-cta-wa {
-  font-family: 'Space Grotesk', sans-serif;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: #FFFFFF;
-  background: #25D366;
-  padding: 1.1rem 2.5rem;
-  text-decoration: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: background 0.2s, transform 0.2s;
-}
-.btn-cta-wa:hover { background: #20BE5C; transform: translateY(-2px); }
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: calc(100vh - 64px);
+    padding: 5rem 2rem 6rem;
+    display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+    max-width: var(--maxw); margin: 0 auto; z-index: 2;
+  }
+  .hero-grid {
+    position: absolute; inset: 0 -2rem; pointer-events: none;
+    display: grid; grid-template-columns: repeat(6, 1fr);
+    z-index: -1;
+  }
+  .hero-grid span { border-right: 1px solid var(--line); }
+  .hero-grid span:last-child { border-right: 0; }
 
-/* ── RESPONSIVE ── */
-@media (max-width: 900px) {
-  .hero-section { grid-template-columns: 1fr; }
-  .hero-right { display: none; }
-  .hero-left { padding: 7rem 1.5rem 5rem; }
-  .hero-scroll { left: 1.5rem; }
-  .trust-section { padding: 4rem 1.5rem; }
-  .trust-grid { grid-template-columns: 1fr 1fr; }
-  .trust-card { border-bottom: 1px solid rgba(13,13,13,0.12); }
-  .services-section,
-  .proceso-section,
-  .nosotros-section,
-  .cta-section { padding: 5rem 1.5rem; }
-  .services-cards { grid-template-columns: 1fr; }
-  .proceso-grid { grid-template-columns: 1fr; }
-  .paso-card { border-right: none; border-bottom: 1px solid rgba(13,13,13,0.12); }
-  .nosotros-inner { grid-template-columns: 1fr; gap: 3rem; }
-  .nosotros-stats { margin-top: 0; }
-}
+  .hero-title {
+    font-family: var(--font-head); font-weight: 700;
+    font-size: clamp(3.4rem, 9vw, 8.5rem);
+    line-height: .9; letter-spacing: -.03em; text-transform: uppercase;
+    margin: 0 0 2rem; color: var(--brand-white);
+  }
+  .hero-stroke {
+    display: block; margin-top: .2rem;
+    color: transparent; -webkit-text-stroke: 1.5px var(--brand-gray);
+  }
+  .lead {
+    max-width: 560px; color: var(--brand-gray);
+    font-size: 1rem; line-height: 1.75; margin: 0 0 2.4rem;
+  }
+
+  /* ── NOTIFY ── */
+  .notify { width: 100%; max-width: 520px; margin: 0 0 2.2rem; }
+  .notify-label {
+    display: block; font-size: .66rem; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--brand-gray); margin-bottom: .7rem;
+  }
+  .notify-field { display: flex; gap: .5rem; }
+  .notify-field input {
+    flex: 1; min-width: 0;
+    background: transparent; color: var(--brand-white);
+    border: 1px solid var(--line); border-radius: 0;
+    padding: 1rem 1.1rem; font: inherit; font-size: .95rem;
+    transition: border-color .2s;
+  }
+  .notify-field input::placeholder { color: var(--brand-light); }
+  .notify-field input:focus { outline: none; border-color: var(--brand-white); }
+  .notify-foot { margin: .7rem 0 0; font-size: .75rem; color: var(--brand-gray); min-height: 1.1em; }
+
+  .btn {
+    display: inline-flex; align-items: center; gap: .55rem;
+    font-family: var(--font-head); font-size: .72rem; font-weight: 600;
+    letter-spacing: .14em; text-transform: uppercase; text-decoration: none;
+    padding: 1rem 1.5rem; border: 1px solid transparent; cursor: pointer;
+    transition: background .2s, color .2s, transform .2s;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-dark { background: var(--brand-white); color: var(--brand-black); }
+  .btn-dark:hover { background: var(--brand-beige); color: #fff; transform: translateY(-2px); }
+  .btn-wa { background: #25D366; color: #fff; }
+  .btn-wa:hover { background: #20BE5C; transform: translateY(-2px); }
+  .btn-wa svg { width: 18px; height: 18px; }
+
+  .hero-ctas { display: flex; align-items: center; gap: 1.4rem; flex-wrap: wrap; }
+  .asap { font-size: .8rem; color: var(--brand-gray); }
+
+  /* ── MARQUEE ── */
+  .marquee {
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    overflow: hidden; background: var(--brand-dark); padding: 1rem 0;
+  }
+  .marquee-track { display: flex; gap: 3rem; width: max-content; animation: marquee 24s linear infinite; }
+  .marquee-track span {
+    font-family: var(--font-head); font-size: .72rem; font-weight: 600;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--brand-beige);
+    white-space: nowrap; display: flex; align-items: center; gap: 3rem;
+  }
+  .marquee-track span::after { content: '✦'; color: var(--brand-light); font-size: .55rem; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+  /* ── STATS ── */
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    max-width: var(--maxw); margin: 0 auto;
+  }
+  .stat { padding: 2.6rem 2rem; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat-num {
+    font-family: var(--font-head); font-size: .64rem; letter-spacing: .16em;
+    color: var(--brand-gray); margin: 0 0 1.4rem;
+  }
+  .stat-val {
+    font-family: var(--font-head); font-size: 2.4rem; font-weight: 700;
+    line-height: 1; color: var(--brand-white); margin: 0 0 .5rem;
+  }
+  .stat-lbl { font-size: .78rem; color: var(--brand-gray); margin: 0; }
+
+  /* ── COMING ── */
+  .coming { padding: 7rem 2rem; max-width: var(--maxw); margin: 0 auto; }
+  .section-title {
+    font-family: var(--font-head); font-weight: 700; font-size: clamp(2rem, 4.5vw, 4rem);
+    line-height: 1; letter-spacing: -.02em; text-transform: uppercase;
+    text-align: center; margin: 0 0 4rem;
+  }
+  .coming-list {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: 1fr 1fr;
+    border: 1px solid var(--line);
+  }
+  .coming-list li {
+    padding: 2.6rem 2.2rem; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .coming-list li:nth-child(2n) { border-right: 0; }
+  .coming-list li:nth-last-child(-n+2) { border-bottom: 0; }
+  .coming-tag {
+    font-family: var(--font-head); font-size: .6rem; font-weight: 600;
+    letter-spacing: .16em; text-transform: uppercase; color: var(--brand-gray);
+    display: inline-block; margin-bottom: 1rem;
+    border: 1px solid var(--line); padding: .25rem .6rem;
+  }
+  .coming-list h3 {
+    font-family: var(--font-head); font-size: 1.25rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .01em; margin: 0 0 .7rem;
+  }
+  .coming-list p { margin: 0; color: var(--brand-gray); font-size: .88rem; line-height: 1.7; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+    padding: 2.2rem 2rem; flex-wrap: wrap; max-width: var(--maxw); margin: 0 auto;
+  }
+  .foot-copy { margin: .6rem 0 0; font-size: .68rem; letter-spacing: .05em; color: var(--brand-gray); }
+  .foot-contacts { display: flex; gap: 1.6rem; flex-wrap: wrap; }
+  .foot-contacts a {
+    font-size: .72rem; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none; color: var(--brand-gray); font-family: var(--font-head);
+    transition: color .2s;
+  }
+  .foot-contacts a:hover { color: var(--brand-white); }
+
+  /* ── REVEAL ── */
+  .reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 760px) {
+    .site-header { padding: 1.2rem 1.3rem; }
+    .locale { display: none; }
+    .hero { padding: 3rem 1.3rem 5rem; min-height: auto; }
+    .hero-grid { inset: 0 -1.3rem; }
+    .notify-field { flex-direction: column; }
+    .notify-field .btn { justify-content: center; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .stat:nth-child(2) { border-right: 0; }
+    .stat:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .coming { padding: 5rem 1.3rem; }
+    .coming-list { grid-template-columns: 1fr; }
+    .coming-list li { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
+    .coming-list li:last-child { border-bottom: 0 !important; }
+    .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.3rem; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+    .reveal { transition: none; opacity: 1; transform: none; }
+    html { scroll-behavior: auto; }
+  }
 </style>

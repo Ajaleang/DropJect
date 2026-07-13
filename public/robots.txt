@@ -4,6 +4,17 @@
 User-agent: *
 Allow: /
 
+# Coming Soon: only the homepage is ready to be indexed.
+# Internal pages are still in production — block crawlers from them.
+Disallow: /contacto/
+Disallow: /servicios/
+Disallow: /nosotros/
+Disallow: /portafolio/
+Disallow: /productos/
+Disallow: /preguntas/
+Disallow: /tecnicas/
+Disallow: /fotografia/
+
 # Sitemap location
 Sitemap: https://dropject.com/sitemap-index.xml
 
