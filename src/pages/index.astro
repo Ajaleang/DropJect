@@ -168,10 +168,38 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
 
     <!-- ═════ CREDENTIALS ═════ -->
     <section class="stats reveal" aria-label="Credenciales">
-      <div class="stat"><p class="stat-num">01</p><p class="stat-val">18+</p><p class="stat-lbl">Años de experiencia</p></div>
-      <div class="stat"><p class="stat-num">02</p><p class="stat-val">15+</p><p class="stat-lbl">Técnicas de estampado</p></div>
-      <div class="stat"><p class="stat-num">03</p><p class="stat-val">100%</p><p class="stat-lbl">Producción en Colombia</p></div>
-      <div class="stat"><p class="stat-num">04</p><p class="stat-val">B2B</p><p class="stat-lbl">Marcas &amp; empresas</p></div>
+      <article class="stat" tabindex="0">
+        <div class="stat-summary">
+          <p class="stat-num">01</p>
+          <p class="stat-val">+18</p>
+          <p class="stat-lbl">Años de experiencia</p>
+        </div>
+        <p class="stat-detail">Transformamos ideas en prendas que destacan. Nuestra trayectoria respalda procesos confiables, acabados impecables y soluciones pensadas para marcas de moda.</p>
+      </article>
+      <article class="stat" tabindex="0">
+        <div class="stat-summary">
+          <p class="stat-num">02</p>
+          <p class="stat-val">+30</p>
+          <p class="stat-lbl">Técnicas de estampado</p>
+        </div>
+        <p class="stat-detail">La técnica ideal para cada diseño. Sin límite de colores, ofrecemos múltiples alternativas de estampación para lograr color, textura, durabilidad y personalidad en cada prenda.</p>
+      </article>
+      <article class="stat" tabindex="0">
+        <div class="stat-summary">
+          <p class="stat-num">03</p>
+          <p class="stat-val">100%</p>
+          <p class="stat-lbl">Colombianos</p>
+        </div>
+        <p class="stat-detail">Diseñamos y producimos con talento colombiano. Calidad local, atención cercana y una cadena de producción comprometida con cada proyecto.</p>
+      </article>
+      <article class="stat" tabindex="0">
+        <div class="stat-summary">
+          <p class="stat-num">04</p>
+          <p class="stat-val">+20</p>
+          <p class="stat-lbl">Empresas confían en nosotros</p>
+        </div>
+        <p class="stat-detail">Acompañamos a más de 20 marcas y empresas en la mejor estampación en serigrafía y la creación de prendas que representan su identidad. Experiencia, cumplimiento y resultados que generan confianza. Conoce algunos de nuestros clientes.</p>
+      </article>
     </section>
 
     <!-- ═════ WHAT'S COMING ═════ -->
@@ -435,8 +463,13 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
     border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
     max-width: var(--maxw); margin: 0 auto;
   }
-  .stat { padding: 2.6rem 2rem; border-right: 1px solid var(--line); }
+  .stat {
+    padding: 2.6rem 2rem; border-right: 1px solid var(--line);
+    overflow: hidden; transition: background .25s ease;
+  }
   .stat:last-child { border-right: 0; }
+  .stat:hover, .stat:focus { background: var(--brand-dark); outline: none; }
+  .stat:focus-visible { outline: 2px solid var(--brand-white); outline-offset: -2px; }
   .stat-num {
     font-family: var(--font-head); font-size: .64rem; letter-spacing: .16em;
     color: var(--brand-gray); margin: 0 0 1.4rem;
@@ -446,6 +479,15 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
     line-height: 1; color: var(--brand-white); margin: 0 0 .5rem;
   }
   .stat-lbl { font-size: .78rem; color: var(--brand-gray); margin: 0; }
+  .stat-detail {
+    max-height: 0; margin: 0; opacity: 0; overflow: hidden;
+    color: var(--brand-gray); font-size: .78rem; line-height: 1.65;
+    transform: translateY(0.75rem);
+    transition: max-height .35s ease, margin-top .35s ease, opacity .25s ease, transform .35s ease;
+  }
+  .stat:hover .stat-detail, .stat:focus .stat-detail {
+    max-height: 14rem; margin-top: 1.25rem; opacity: 1; transform: translateY(0);
+  }
 
   /* ── COMING ── */
   .coming { padding: 7rem 2rem; max-width: var(--maxw); margin: 0 auto; }
@@ -511,6 +553,10 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
     .coming-list li { border-right: 0 !important; border-bottom: 1px solid var(--line) !important; }
     .coming-list li:last-child { border-bottom: 0 !important; }
     .site-footer { flex-direction: column; align-items: flex-start; padding: 2rem 1.3rem; }
+  }
+
+  @media (hover: none) {
+    .stat-detail { max-height: 14rem; margin-top: 1.25rem; opacity: 1; transform: none; }
   }
 
   @media (prefers-reduced-motion: reduce) {
