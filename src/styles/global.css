@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -14,7 +14,7 @@
     --color-brand-white: #0D0D0D; /* NEW — was #F5F3EF, now primary dark text */
 
     --font-sans: 'Inter', sans-serif;
-    --font-heading: 'Space Grotesk', sans-serif;
+    --font-heading: 'Inter', sans-serif;
 }
 
 @layer base {
@@ -84,7 +84,7 @@ body::before {
     width: max-content;
 }
 .marquee-item {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 0.7rem;
     font-weight: 600;
     letter-spacing: 0.2em;
@@ -128,7 +128,7 @@ body::before {
     position: absolute;
     bottom: -2rem;
     right: -1rem;
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 22vw;
     font-weight: 700;
     color: transparent;
@@ -141,7 +141,7 @@ body::before {
 
 /* ── PROCESS STEP NUMBERS ── */
 .paso-num-outline {
-    font-family: 'Space Grotesk', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 3.5rem;
     font-weight: 700;
     color: transparent;
@@ -197,7 +197,7 @@ body::before {
   background: currentColor;
 }
 .page-hero-h1 {
-  font-family: 'Space Grotesk', sans-serif;
+   font-family: 'Inter', sans-serif;
   font-size: clamp(3rem, 6vw, 6rem);
   font-weight: 700;
   line-height: 0.95;

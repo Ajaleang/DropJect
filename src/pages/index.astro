@@ -55,11 +55,11 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
   <link
     rel="preload"
     as="style"
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
   />
   <link
     rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
   />
 
   <script type="application/ld+json" set:html={JSON.stringify({
@@ -95,11 +95,7 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
 
   <header class="site-header">
     <a href="/" class="brand" aria-label="DropJect — Inicio">
-      <svg class="brand-mark" width="26" height="26" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-        <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-        <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
-        <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
-      </svg>
+      <img src="/logos/05.png" alt="DropJect" style="height:28px;width:auto;object-fit:contain;display:block;" />
       <span class="brand-word">DropJect</span>
     </a>
     <span class="locale">Bogotá · Colombia</span>
@@ -112,9 +108,14 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
         <span></span><span></span><span></span><span></span><span></span><span></span>
       </div>
 
-      <p class="eyebrow"><span class="dash"></span>Próximamente · Coming Soon</p>
+      <div class="badge-soon">
+        <span class="badge-dot" aria-hidden="true"></span>
+        <span class="badge-text">Próximamente</span>
+        <span class="badge-sep" aria-hidden="true">·</span>
+        <span class="badge-sub">Coming Soon</span>
+      </div>
 
-      <h1 id="hero-title" class="hero-title">
+      <h1 id="hero-title" class="hero-title" style="margin-top: 1.4rem;">
         DropJect
         <span class="hero-stroke">/ Estampado<br />a&nbsp;otro&nbsp;nivel.</span>
       </h1>
@@ -207,11 +208,7 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
   <footer class="site-footer">
     <div class="foot-brand">
       <a href="/" class="brand" aria-label="DropJect — Inicio">
-        <svg class="brand-mark" width="20" height="20" viewBox="0 0 60 60" fill="none" aria-hidden="true">
-          <path d="M10 38L30 50L50 38" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-          <path d="M10 30L30 42L50 30" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.7"/>
-          <path d="M10 22L30 34L50 22L30 10L10 22Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" opacity="0.45"/>
-        </svg>
+        <img src="/logos/05.png" alt="DropJect" style="height:18px;width:auto;object-fit:contain;display:block;" />
         <span class="brand-word">DropJect</span>
       </a>
       <p class="foot-copy">&copy; {new Date().getFullYear()} DropJect. Estampado a otro nivel.</p>
@@ -262,7 +259,7 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
     --brand-white: #0D0D0D;
     --line: rgba(13,13,13,0.12);
     --maxw: 1120px;
-    --font-head: 'Space Grotesk', sans-serif;
+    --font-head: 'Inter', sans-serif;
     --font-body: 'Inter', system-ui, sans-serif;
   }
 
@@ -318,6 +315,41 @@ const fullOgImage = `${SITE_URL}/logos/04.png`;
   }
   .eyebrow.centered { justify-content: center; }
   .dash { display: block; width: 2rem; height: 1px; background: currentColor; flex-shrink: 0; }
+
+  /* ── BADGE PRÓXIMAMENTE ── */
+  .badge-soon {
+    display: inline-flex; align-items: center; gap: .55rem;
+    padding: .55rem 1.1rem;
+    background: var(--brand-white); color: var(--brand-black);
+    font-family: var(--font-head); font-weight: 600;
+    font-size: .72rem; letter-spacing: .22em; text-transform: uppercase;
+    border: 1px solid var(--brand-white);
+    margin-bottom: 1.6rem;
+    position: relative;
+    animation: badge-pulse 2.6s ease-in-out infinite;
+  }
+  .badge-soon::before, .badge-soon::after {
+    content: ''; position: absolute; width: 8px; height: 8px;
+    border: 1px solid var(--brand-white);
+  }
+  .badge-soon::before { top: -4px; left: -4px; border-right: 0; border-bottom: 0; }
+  .badge-soon::after  { bottom: -4px; right: -4px; border-left: 0; border-top: 0; }
+  .badge-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #25D366; box-shadow: 0 0 0 0 rgba(37,211,102,.7);
+    animation: ping 1.6s cubic-bezier(0,0,.2,1) infinite;
+  }
+  .badge-sep { opacity: .5; }
+  .badge-sub { opacity: .55; font-weight: 500; }
+  @keyframes ping {
+    0%   { box-shadow: 0 0 0 0 rgba(37,211,102,.6); }
+    70%  { box-shadow: 0 0 0 7px rgba(37,211,102,0); }
+    100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+  }
+  @keyframes badge-pulse {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-3px); }
+  }
 
   /* ── HERO ── */
   .hero {
