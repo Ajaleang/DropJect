@@ -15,7 +15,7 @@ const copy = isEnglish ? {
   location: 'Bogota, Colombia', badge: 'Coming soon',
   title: 'Printing at\nanother level.',
   lead: 'High-end screen printing and end-to-end textile production for demanding brands. We are refining every detail of the new platform.',
-  notifyLabel: 'Notify me when it launches', notifyButton: 'Notify me', notifyStatus: 'Opening your email client... Thank you.', notifyInvalid: 'Enter a valid email address.',
+  notifyLabel: 'Notify me when it launches', notifyButton: 'Notify me', notifySuccess: 'You are on the list. Thank you.', notifyError: 'We could not save your email. Please try again.', notifyInvalid: 'Enter a valid email address.', notifySending: 'Saving your email...',
   direct: 'Have a project already?', whatsapp: 'Talk on WhatsApp',
   marquee: ['Bogota-Colombia', 'Premium printing', 'Screen printing', '3D relief', 'Design', 'Full Package', 'Packing'],
   credentialEyebrow: 'The backing behind every project', credentialTitle: 'Built for brands\nthat want to stand out.', swipe: 'Swipe to explore',
@@ -32,13 +32,13 @@ const copy = isEnglish ? {
     ['Gallery', 'Portfolio of results', 'Collections and real cases from brands that trusted DropJect. Inspiration before getting a quote.'],
     ['Quote', 'Get a quote in minutes', 'Tell us about the service, garments and quantities. We will get back to you within 24 hours.'],
   ],
-  footer: 'Printing at another level.', subject: 'DropJect launch notification', body: 'Please notify me when the website is ready. My email: '
+  footer: 'Printing at another level.'
 } : {
   languageHref: '/en', languageLabel: 'EN', quoteLabel: 'Cotizar proyecto', quoteAria: 'Ir al formulario de cotización',
   location: 'Bogotá, Colombia', badge: 'Próximamente',
   title: 'Estampado a\notro nivel.',
   lead: 'Serigrafía de alto nivel y producción textil integral para marcas exigentes. Estamos afinando cada detalle de la nueva plataforma.',
-  notifyLabel: 'Avísame cuando esté listo', notifyButton: 'Suscribirme', notifyStatus: 'Abriendo tu cliente de correo... Gracias.', notifyInvalid: 'Ingresa un correo válido, por favor.',
+  notifyLabel: 'Avísame cuando esté listo', notifyButton: 'Suscribirme', notifySuccess: 'Ya estás en la lista. Gracias.', notifyError: 'No pudimos guardar tu correo. Inténtalo de nuevo.', notifyInvalid: 'Ingresa un correo válido, por favor.', notifySending: 'Guardando tu correo...',
   direct: '¿Tienes un proyecto ya?', whatsapp: 'Hablar por WhatsApp',
   marquee: ['Bogota-Colombia', 'Estampado premium', 'Serigrafia', 'Relieve 3D', 'Diseño', 'Full Package', 'Packing'],
   credentialEyebrow: 'El respaldo de cada proyecto', credentialTitle: 'Hecho para marcas\nque quieren destacar.', swipe: 'Desliza para explorar',
@@ -55,7 +55,7 @@ const copy = isEnglish ? {
     ['Galería', 'Portafolio de resultados', 'Colecciones y casos reales de marcas que ya confiaron en DropJect. Inspiración antes de cotizar.'],
     ['Cotización', 'Cotiza en minutos', 'Cuéntanos servicio, prendas y cantidades. Te respondemos en menos de 24 horas.'],
   ],
-  footer: 'Estampado a otro nivel.', subject: 'Suscripción al lanzamiento DropJect', body: 'Avísenme cuando el sitio esté listo. Mi correo: '
+  footer: 'Estampado a otro nivel.'
 };
 ---
 
@@ -84,7 +84,11 @@ const copy = isEnglish ? {
     <p class="badge-soon"><span></span>{copy.badge}</p>
     <h1 id="hero-title">DropJect <span>{copy.title.split('\n').map((line) => <>{line}<br /></>)}</span></h1>
     <p class="lead">{copy.lead}</p>
-    <form id="notify" class="notify" novalidate data-subject={copy.subject} data-body={copy.body} data-valid={copy.notifyStatus} data-invalid={copy.notifyInvalid}>
+    <form id="notify" class="notify" action="https://formsubmit.co/ajax/contacto@dropject.com" method="post" novalidate data-success={copy.notifySuccess} data-error={copy.notifyError} data-invalid={copy.notifyInvalid} data-sending={copy.notifySending}>
+      <input type="hidden" name="form" value="launch-notification" />
+      <input type="hidden" name="_subject" value="Nueva suscripción al lanzamiento | DropJect" />
+      <input type="hidden" name="_template" value="table" />
+      <span class="honeypot" aria-hidden="true"><label for="notify-website">Leave this field empty</label><input id="notify-website" name="_honey" type="text" tabindex="-1" autocomplete="off" /></span>
       <label for="email">{copy.notifyLabel}</label>
       <div><input id="email" type="email" name="email" inputmode="email" autocomplete="email" placeholder="tu@correo.com" required /><button type="submit">{copy.notifyButton} <span aria-hidden="true">→</span></button></div>
       <p id="notify-status" aria-live="polite"></p>
@@ -126,14 +130,25 @@ const copy = isEnglish ? {
 
   const form = document.getElementById('notify') as HTMLFormElement | null;
   const status = document.getElementById('notify-status');
-  form?.addEventListener('submit', (event) => {
+  const submitButton = form?.querySelector<HTMLButtonElement>('button[type="submit"]');
+  form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const input = form.querySelector<HTMLInputElement>('input[type="email"]');
     const value = input?.value.trim() || '';
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) { if (status) status.textContent = form.dataset.invalid || ''; input?.focus(); return; }
-    window.location.href = `mailto:contacto@dropject.com?subject=${encodeURIComponent(form.dataset.subject || '')}&body=${encodeURIComponent(`${form.dataset.body}${value}`)}`;
-    if (status) status.textContent = form.dataset.valid || '';
-    form.reset();
+    if (status) status.textContent = form.dataset.sending || '';
+    if (submitButton) { submitButton.disabled = true; submitButton.setAttribute('aria-busy', 'true'); }
+    try {
+      const response = await fetch(form.action, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(Object.fromEntries(new FormData(form))) });
+      const result = await response.json();
+      if (!response.ok || (result.success !== true && result.success !== 'true')) throw new Error();
+      if (status) status.textContent = form.dataset.success || '';
+      form.reset();
+    } catch {
+      if (status) status.textContent = form.dataset.error || '';
+    } finally {
+      if (submitButton) { submitButton.disabled = false; submitButton.removeAttribute('aria-busy'); }
+    }
   });
 </script>
 
@@ -142,7 +157,7 @@ const copy = isEnglish ? {
   * { box-sizing:border-box; } body { margin:0; background:var(--paper); color:var(--ink); } a { color:inherit; } .skip-link { position:absolute; left:-999px; z-index:20; } .skip-link:focus { left:1rem; top:1rem; background:var(--ink); color:var(--paper); padding:.5rem 1rem; }
   .site-header,.site-footer,.hero,.credentials,.coming { max-width:var(--max); margin:auto; } .site-header { align-items:center; backdrop-filter:blur(12px); background:rgba(245,243,239,.92); border-bottom:1px solid var(--line); display:flex; justify-content:space-between; left:0; max-width:none; min-height:5.6rem; padding:1.25rem max(2rem, calc((100vw - var(--max)) / 2)); position:sticky; top:0; z-index:10; } .brand { display:inline-flex; align-items:center; gap:.55rem; font-size:.8rem; font-weight:700; letter-spacing:.18em; text-decoration:none; text-transform:uppercase; } .brand img { object-fit:contain; } .site-actions { display:flex; align-items:center; gap:.65rem; } .site-actions a { font-size:.66rem; font-weight:600; letter-spacing:.13em; padding:.75rem 1rem; text-decoration:none; text-transform:uppercase; } .language-switch { align-items:center; border:1px solid var(--line); display:inline-flex; gap:.45rem; } .flag { box-shadow:0 0 0 1px rgba(13,13,13,.12); height:.72rem; width:1.05rem; } .quote-link { background:var(--ink); color:var(--paper); }
   .hero { min-height:calc(100vh - 5.6rem); padding:5rem 2rem 6rem; display:flex; flex-direction:column; justify-content:center; position:relative; overflow:hidden; } .hero-grid { display:grid; grid-template-columns:repeat(6,1fr); inset:0; position:absolute; pointer-events:none; } .hero-grid span { border-right:1px solid var(--line); } .hero-grid span:last-child { border:0; } .badge-soon { align-items:center; display:inline-flex; gap:.6rem; font-size:.66rem; font-weight:600; letter-spacing:.18em; margin:0 0 1.5rem; text-transform:uppercase; } .badge-soon span { width:.5rem; height:.5rem; background:#25d366; border-radius:50%; box-shadow:0 0 0 .25rem rgba(37,211,102,.15); }
-  .hero h1 { font-size:clamp(3.2rem,8.5vw,8rem); font-weight:700; letter-spacing:-.055em; line-height:.88; margin:0 0 2rem; text-transform:uppercase; } .hero h1 span { color:var(--muted); display:block; line-height:1.08; margin-top:.2rem; } .lead { color:var(--muted); font-size:1rem; line-height:1.7; margin:0 0 2.25rem; max-width:35rem; } .notify { max-width:32rem; width:100%; } .notify label { display:block; font-size:.65rem; font-weight:600; letter-spacing:.16em; margin-bottom:.7rem; text-transform:uppercase; } .notify div { display:flex; gap:.5rem; } .notify input { background:transparent; border:1px solid var(--line); border-radius:0; color:var(--ink); flex:1; font:inherit; min-width:0; padding:1rem; } .notify button,.direct-cta a { background:var(--ink); border:0; color:var(--paper); cursor:pointer; font:inherit; font-size:.7rem; font-weight:600; letter-spacing:.12em; padding:1rem 1.25rem; text-decoration:none; text-transform:uppercase; } .notify-status { color:var(--muted); font-size:.75rem; min-height:1rem; } .direct-cta { align-items:center; display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; } .direct-cta > span { color:var(--muted); font-size:.8rem; }
+  .hero h1 { font-size:clamp(3.2rem,8.5vw,8rem); font-weight:700; letter-spacing:-.055em; line-height:.88; margin:0 0 2rem; text-transform:uppercase; } .hero h1 span { color:var(--muted); display:block; line-height:1.08; margin-top:.2rem; } .lead { color:var(--muted); font-size:1rem; line-height:1.7; margin:0 0 2.25rem; max-width:35rem; } .notify { max-width:32rem; position:relative; width:100%; } .notify > label { display:block; font-size:.65rem; font-weight:600; letter-spacing:.16em; margin-bottom:.7rem; text-transform:uppercase; } .notify div { display:flex; gap:.5rem; } .notify input { background:transparent; border:1px solid var(--line); border-radius:0; color:var(--ink); flex:1; font:inherit; min-width:0; padding:1rem; } .notify button,.direct-cta a { background:var(--ink); border:0; color:var(--paper); cursor:pointer; font:inherit; font-size:.7rem; font-weight:600; letter-spacing:.12em; padding:1rem 1.25rem; text-decoration:none; text-transform:uppercase; } .notify button:disabled { cursor:wait; opacity:.65; } .notify-status { color:var(--muted); font-size:.75rem; min-height:1rem; } .honeypot { height:1px; left:-9999px; overflow:hidden; position:absolute; width:1px; } .direct-cta { align-items:center; display:flex; flex-wrap:wrap; gap:1rem; margin-top:.5rem; } .direct-cta > span { color:var(--muted); font-size:.8rem; }
   .marquee { background:var(--soft); border-block:1px solid var(--line); overflow:hidden; padding:1rem 0; } .marquee div { animation:marquee 24s linear infinite; display:flex; gap:3rem; width:max-content; } .marquee span { font-size:.68rem; font-weight:600; letter-spacing:.18em; text-transform:uppercase; white-space:nowrap; } .marquee span::after { content:'✦'; color:var(--muted); margin-left:3rem; } @keyframes marquee { to { transform:translateX(-50%); } }
   .credentials { padding-top:5rem; } .credentials-heading { align-items:end; display:flex; justify-content:space-between; gap:2rem; padding:0 2rem 2.5rem; } .credentials-heading p,.credentials-heading > span,.eyebrow { color:var(--muted); font-size:.65rem; font-weight:600; letter-spacing:.16em; margin:0 0 1rem; text-transform:uppercase; } .credentials-heading > span { display:none; margin:0; } .credentials h2,.coming h2 { font-size:clamp(1.8rem,3.5vw,3rem); letter-spacing:-.035em; line-height:1; margin:0; text-transform:uppercase; } .stats { border-block:1px solid var(--line); display:grid; grid-template-columns:repeat(4,1fr); } .stat { border-right:1px solid var(--line); display:flex; flex-direction:column; min-height:18rem; overflow:hidden; padding:1.7rem 2rem 2.2rem; transition:background .3s; } .stat:last-child { border:0; } .stat:hover,.stat:focus { background:var(--soft); outline:0; } .stat:focus-visible { outline:2px solid var(--ink); outline-offset:-2px; } .stat-top { align-items:center; display:flex; justify-content:space-between; } .stat-top small { color:var(--muted); font-size:.65rem; letter-spacing:.16em; } .stat-top i { align-items:center; border:1px solid var(--line); border-radius:50%; display:flex; font-style:normal; height:2rem; justify-content:center; transition:transform .3s; width:2rem; } .stat:hover i,.stat:focus i { background:var(--ink); color:var(--paper); transform:rotate(-15deg); } .stat-summary { margin-top:auto; } .stat-summary strong { display:block; font-size:clamp(2.6rem,4vw,3.7rem); letter-spacing:-.06em; line-height:.9; margin-bottom:.7rem; } .stat-summary h3 { color:var(--muted); font-size:.7rem; letter-spacing:.1em; margin:0; text-transform:uppercase; } .stat-content { max-height:0; opacity:0; overflow:hidden; transform:translateY(1rem); transition:.4s ease; } .stat-content p { color:var(--muted); font-size:.78rem; line-height:1.65; margin:0; } .stat-content a { display:inline-block; font-size:.65rem; font-weight:600; letter-spacing:.1em; margin-top:1rem; text-decoration:none; text-transform:uppercase; } .stat:hover .stat-content,.stat:focus .stat-content { margin-top:1.25rem; max-height:14rem; opacity:1; transform:none; }
   .coming { padding:7rem 2rem; } .coming .eyebrow { display:flex; justify-content:center; } .coming h2 { margin-bottom:4rem; text-align:center; } .coming ul { border:1px solid var(--line); display:grid; grid-template-columns:1fr 1fr; list-style:none; margin:0; padding:0; } .coming li { border-bottom:1px solid var(--line); border-right:1px solid var(--line); padding:2.5rem 2rem; } .coming li:nth-child(2n) { border-right:0; } .coming li:nth-last-child(-n+2) { border-bottom:0; } .coming li > span { color:var(--muted); font-size:.62rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase; } .coming li h3 { font-size:1.2rem; letter-spacing:-.02em; margin:1rem 0 .7rem; text-transform:uppercase; } .coming li p { color:var(--muted); font-size:.85rem; line-height:1.65; margin:0; }
