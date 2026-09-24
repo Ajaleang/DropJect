@@ -1,0 +1,57 @@
+---
+export type WhatsAppLocale = 'es' | 'en';
+
+interface Props {
+  locale?: WhatsAppLocale;
+}
+
+const { locale = 'es' } = Astro.props;
+const isEnglish = locale === 'en';
+const copy = isEnglish
+  ? { label: 'Need anything?', message: 'Write to us and let us know about your project.', close: 'Close WhatsApp message', action: 'Talk on WhatsApp' }
+  : { label: '¿Necesitas algo?', message: 'Escríbenos y hablemos de tu proyecto.', close: 'Cerrar mensaje de WhatsApp', action: 'Hablar por WhatsApp' };
+const whatsappUrl = `https://wa.me/573117694342?text=${encodeURIComponent(isEnglish ? 'Hi DropJect, I would like to discuss a project.' : 'Hola DropJect, quiero hablar sobre un proyecto.')}`;
+---
+
+<aside class="whatsapp-widget" data-whatsapp-widget aria-label="WhatsApp">
+  <div class="whatsapp-message" hidden>
+    <button type="button" class="whatsapp-close" aria-label={copy.close}>&times;</button>
+    <p>{copy.label}</p>
+    <span>{copy.message}</span>
+  </div>
+  <a class="whatsapp-button" href={whatsappUrl} target="_blank" rel="noopener noreferrer" aria-label={copy.action}>
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M.057 24l1.687-6.163a11.89 11.89 0 01-1.587-5.946C.16 5.335 5.495 0 12.05 0c3.18 0 6.166 1.24 8.412 3.488a11.82 11.82 0 013.48 8.414c-.003 6.557-5.338 11.892-11.893 11.892a11.84 11.84 0 01-5.688-1.448L.057 24zm6.597-3.807a9.88 9.88 0 005.392 1.592c5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884a9.82 9.82 0 001.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.88-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.347-.272.297-1.04 1.016-1.04 2.479 0 1.463 1.065 2.876 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" /></svg>
+    <span>{isEnglish ? 'WhatsApp' : 'WhatsApp'}</span>
+  </a>
+</aside>
+
+<script>
+  const widget = document.querySelector<HTMLElement>('[data-whatsapp-widget]');
+  const message = widget?.querySelector<HTMLElement>('.whatsapp-message');
+  const closeButton = widget?.querySelector<HTMLButtonElement>('.whatsapp-close');
+  let hideTimeout: number | undefined;
+
+  const hideMessage = () => {
+    if (!message) return;
+    message.classList.remove('is-visible');
+    window.setTimeout(() => { message.hidden = true; }, 180);
+  };
+
+  const showMessage = () => {
+    if (!message) return;
+    if (hideTimeout) window.clearTimeout(hideTimeout);
+    message.hidden = false;
+    window.requestAnimationFrame(() => message.classList.add('is-visible'));
+    hideTimeout = window.setTimeout(hideMessage, 9_000);
+  };
+
+  closeButton?.addEventListener('click', hideMessage);
+  window.setTimeout(showMessage, 4_000);
+  window.setInterval(showMessage, 45_000);
+</script>
+
+<style>
+  .whatsapp-widget { bottom:max(1.3rem,env(safe-area-inset-bottom)); position:fixed; right:max(1.3rem,env(safe-area-inset-right)); z-index:30; } .whatsapp-button { align-items:center; background:#0d0d0d; border:1px solid #0d0d0d; color:#f5f3ef; display:flex; font:600 .65rem Inter,system-ui,sans-serif; gap:.6rem; letter-spacing:.12em; padding:.9rem 1rem; text-decoration:none; text-transform:uppercase; transition:background .2s,color .2s,transform .2s; } .whatsapp-button:hover { background:#f5f3ef; color:#0d0d0d; transform:translateY(-2px); } .whatsapp-button svg { height:1.15rem; width:1.15rem; } .whatsapp-message { background:#f5f3ef; border:1px solid rgba(13,13,13,.18); bottom:calc(100% + .9rem); box-shadow:0 10px 30px rgba(13,13,13,.12); max-width:19rem; opacity:0; padding:1rem 2.8rem 1rem 1rem; position:absolute; right:0; transform:translateY(.5rem); transition:opacity .18s ease,transform .18s ease; width:calc(100vw - 2.6rem); } .whatsapp-message::after { background:#f5f3ef; border-bottom:1px solid rgba(13,13,13,.18); border-right:1px solid rgba(13,13,13,.18); bottom:-.38rem; content:''; height:.7rem; position:absolute; right:1.2rem; transform:rotate(45deg); width:.7rem; } .whatsapp-message.is-visible { opacity:1; transform:none; } .whatsapp-message p { font:600 .7rem Inter,system-ui,sans-serif; letter-spacing:.09em; margin:0 0 .4rem; text-transform:uppercase; } .whatsapp-message span { color:#6e6c68; display:block; font:400 .8rem/1.55 Inter,system-ui,sans-serif; } .whatsapp-close { background:transparent; border:0; color:#6e6c68; cursor:pointer; font:400 1.3rem/1 Inter,system-ui,sans-serif; padding:.45rem; position:absolute; right:.35rem; top:.35rem; } .whatsapp-close:hover,.whatsapp-close:focus-visible { color:#0d0d0d; } .whatsapp-close:focus-visible,.whatsapp-button:focus-visible { outline:2px solid #0d0d0d; outline-offset:3px; }
+  @media (max-width:560px) { .whatsapp-widget { bottom:max(1rem,env(safe-area-inset-bottom)); right:max(1rem,env(safe-area-inset-right)); } .whatsapp-button span { display:none; } .whatsapp-button { padding:.9rem; } .whatsapp-message { max-width:17rem; width:calc(100vw - 2rem); } }
+  @media (prefers-reduced-motion:reduce) { .whatsapp-button,.whatsapp-message { transition:none; } }
+</style>

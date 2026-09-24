@@ -1,4 +1,6 @@
 ---
+import FloatingWhatsApp from '../components/FloatingWhatsApp.astro';
+
 const siteUrl = 'https://dropject.com';
 const title = 'Cotiza tu proyecto | DropJect';
 const description = 'Cuéntanos sobre tu proyecto de estampado o producción textil y recibe una respuesta de DropJect.';
@@ -88,6 +90,8 @@ const description = 'Cuéntanos sobre tu proyecto de estampado o producción tex
       <div><a href="/" class="brand"><img src="/logos/05.png" alt="DropJect" width="18" height="18" /><span>DropJect</span></a><p>&copy; {new Date().getFullYear()} DropJect. Estampado a otro nivel.</p></div>
       <nav><a href="https://wa.me/573117694342" target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://instagram.com/dropject" target="_blank" rel="noopener noreferrer">Instagram</a><a href="mailto:contacto@dropject.com">Correo</a></nav>
     </footer>
+
+    <FloatingWhatsApp />
 
     <script>
       const form = document.getElementById('contact-form') as HTMLFormElement | null;
