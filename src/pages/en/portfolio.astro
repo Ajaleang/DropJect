@@ -1,0 +1,33 @@
+---
+import SEO from '../../components/SEO.astro';
+import ClientPortfolio from '../../components/ClientPortfolio.astro';
+
+const siteUrl = 'https://dropject.com';
+const title = 'Brands that trust DropJect | Portfolio';
+const description = 'Meet some of the brands that have trusted DropJect to bring their ideas and textile projects to life.';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#F5F3EF" />
+    <SEO
+      title={title}
+      description={description}
+      canonicalURL="/en/portfolio"
+      keywords="DropJect brands, clients, textile portfolio, screen printing, printing Bogotá"
+      locale="en"
+    />
+    <link rel="alternate" hreflang="es" href={`${siteUrl}/portafolio`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en/portfolio`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/portafolio`} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" />
+  </head>
+  <body>
+    <ClientPortfolio locale="en" />
+  </body>
+</html>

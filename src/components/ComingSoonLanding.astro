@@ -107,7 +107,7 @@ const copy = isEnglish ? {
         <article class="stat" tabindex="0">
           <div class="stat-top"><small>0{index + 1}</small><i aria-hidden="true">↗</i></div>
           <div class="stat-summary"><strong>{value}</strong><h3>{label}</h3></div>
-          <div class="stat-content"><p>{detail}</p>{index === 3 && <a href="/portafolio">{copy.portfolio} <span aria-hidden="true">→</span></a>}</div>
+          <div class="stat-content"><p>{detail}</p>{index === 3 && <a href={isEnglish ? '/en/portfolio' : '/portafolio'}>{copy.portfolio} <span aria-hidden="true">→</span></a>}</div>
         </article>
       ))}
     </div>
