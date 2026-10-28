@@ -4,12 +4,10 @@
 User-agent: *
 Allow: /
 
-# Coming Soon: only the homepage is ready to be indexed.
-# Internal pages are still in production — block crawlers from them.
+# Coming Soon: keep unfinished legacy pages out of search results.
 Disallow: /contacto/
 Disallow: /servicios/
 Disallow: /nosotros/
-Disallow: /portafolio/
 Disallow: /productos/
 Disallow: /preguntas/
 Disallow: /tecnicas/
