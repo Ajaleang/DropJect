@@ -6,6 +6,7 @@ export interface SEOProps {
   canonicalURL?: string;
   ogImage?: string;
   type?: 'website' | 'article' | 'product';
+  locale?: 'es' | 'en';
 }
 
 const {
@@ -14,7 +15,8 @@ const {
   keywords = 'sublimación, dotaciones corporativas, uniformes, serigrafía, Bogotá, estampado textil, merchandising, material POP',
   canonicalURL,
   ogImage = '/logos/04.png',
-  type = 'website'
+  type = 'website',
+  locale = 'es'
 } = Astro.props;
 
 const siteUrl = 'https://dropject.com';
@@ -39,7 +41,7 @@ const fullOgImage = ogImage.startsWith('/') ? `${siteUrl}${ogImage}` : ogImage;
 <meta property="og:description" content={description} />
 <meta property="og:image" content={fullOgImage} />
 <meta property="og:site_name" content="DropJect" />
-<meta property="og:locale" content="es_CO" />
+<meta property="og:locale" content={locale === 'en' ? 'en_US' : 'es_CO'} />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
