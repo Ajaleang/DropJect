@@ -9,7 +9,7 @@ export default defineConfig({
   site: 'https://dropject.com',
   integrations: [
     sitemap({
-      filter: (page) => page === 'https://dropject.com/'
+      filter: (page) => page === 'https://dropject.com/' || page === 'https://dropject.com/portafolio'
     })
   ],
   vite: {
