@@ -64,8 +64,8 @@ const copy = isEnglish ? {
 <a class="skip-link" href="#main">{isEnglish ? 'Skip to content' : 'Saltar al contenido'}</a>
 <header class="site-header">
   <a href={isEnglish ? '/en' : '/'} class="brand" aria-label="DropJect">
-    <img src="/logos/05.png" alt="DropJect" width="28" height="28" />
-    <span>DropJect</span>
+    <img src="/logos/05.png" alt="" width="28" height="28" />
+    <img src="/logos/06.png" alt="" width="110" height="15" />
   </a>
   <nav class="site-actions" aria-label={isEnglish ? 'Main navigation' : 'Navegación principal'}>
     <a class="language-switch" href={copy.languageHref} lang={isEnglish ? 'es' : 'en'}>
@@ -120,7 +120,7 @@ const copy = isEnglish ? {
 </main>
 
 <footer class="site-footer">
-  <div><a href={isEnglish ? '/en' : '/'} class="brand"><img src="/logos/05.png" alt="DropJect" width="18" height="18" /><span>DropJect</span></a><p>© {new Date().getFullYear()} DropJect. {copy.footer}</p></div>
+  <div><a href={isEnglish ? '/en' : '/'} class="brand" aria-label="DropJect"><img src="/logos/05.png" alt="" width="18" height="18" /><img src="/logos/06.png" alt="" width="90" height="12" /></a><p>© {new Date().getFullYear()} DropJect. {copy.footer}</p></div>
   <nav><a href={wa} target="_blank" rel="noopener noreferrer">WhatsApp</a><a href="https://instagram.com/dropject" target="_blank" rel="noopener noreferrer">Instagram</a><a href={`mailto:${email}`}>{email}</a></nav>
 </footer>
 
